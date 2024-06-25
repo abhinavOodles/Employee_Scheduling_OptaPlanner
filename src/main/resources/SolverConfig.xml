@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+
+    <solutionClass>com.example.Employee_Scheduling.Domain.EmployeeScheduling</solutionClass>
+    <entityClass>com.example.Employee_Scheduling.Domain.Shift</entityClass>
+
+    <scoreDirectorFactory>
+        <constraintProviderClass> com.example.Employee_Scheduling.SolutionProvider.ConstraintsProvider</constraintProviderClass>
+        <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
+    </scoreDirectorFactory>
+    <constructionHeuristic>
+        <changeMoveSelector/>
+    </constructionHeuristic>
+    <localSearch>
+        <unionMoveSelector>
+            <changeMoveSelector>
+            </changeMoveSelector>
+            <swapMoveSelector>
+            </swapMoveSelector>
+        </unionMoveSelector>
+        <acceptor>
+            <lateAcceptanceSize>500</lateAcceptanceSize>
+        </acceptor>
+        <forager>
+            <acceptedCountLimit>20</acceptedCountLimit>
+        </forager>
+    </localSearch>
+    <termination>
+        <unimprovedSecondsSpentLimit>60</unimprovedSecondsSpentLimit>
+    </termination>
+    <moveThreadCount>AUTO</moveThreadCount>
+
+</solver>
