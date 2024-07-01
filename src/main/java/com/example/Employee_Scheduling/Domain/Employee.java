@@ -36,6 +36,6 @@ public class Employee  {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<OptAvailability> availabilities;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Availability availability;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Availability availability;
 }

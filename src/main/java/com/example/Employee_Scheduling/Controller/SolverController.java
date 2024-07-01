@@ -7,16 +7,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 
+@RestController
+@RequestMapping("/solver")
 public class SolverController {
+
 
     @Autowired
     private SolverService solverService ;
 
 
-    @PostMapping("/startSolving")
-    private ResponseEntity<?> solving (@RequestBody EmployeeDTO employeeDTO){
+    @PostMapping("/start")
+    private ResponseEntity<?> solving ()  {
         return ResponseEntity.ok(solverService.solver());
     }
 }

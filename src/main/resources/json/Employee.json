@@ -1,0 +1,26 @@
+[{
+  "name" :  "ABCD" ,
+   "skill" : "Java" ,
+  "availability": "ABSENT"
+},
+  {
+    "name" :  "Chandu" ,
+    "skill" : "Web_Development" ,
+    "availability": "Available"
+  },
+  {
+    "name" :  "Champion" ,
+    "skill" : "FrontEnd_Development" ,
+    "availability": "Desired"
+  },
+  {
+    "name" :  "Champion" ,
+    "skill" : "FrontEnd_Development" ,
+    "availability": "UNAVAILABLE"
+  },
+  {
+    "name" :  "Nitin Joshi" ,
+    "skill" : "BlockChain_Developer" ,
+    "availability": "Desired"
+  }
+]

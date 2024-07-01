@@ -1,0 +1,49 @@
+[{
+  "start": "09:30",
+  "end": "18:30",
+  "location": "Online",
+  "requiredSkill": "Java"
+},
+  {
+    "start": "10:30",
+    "end": "17:30",
+    "location": "Hybrid",
+    "requiredSkill": "C++"
+  },
+  {
+    "start": "09:30",
+    "end": "14:30",
+    "location": "Gurgaon",
+    "requiredSkill": "Web_Development"
+  },
+  {
+    "start": "10:30",
+    "end": "19:30",
+    "location": "Gurgaon",
+    "requiredSkill": "Backend_Development "
+  },
+  {
+    "start": "14:30",
+    "end": "12:30",
+    "location": "Hybrid",
+    "requiredSkill": "SpringBoot"
+  },
+  {
+    "start": "12:30",
+    "end": "18:30",
+    "location": "Gurgaon",
+    "requiredSkill": "JavaScript"
+  },
+  {
+    "start": "12:30",
+    "end": "19:30",
+    "location": "Gurgaon",
+    "requiredSkill": "Web_Development"
+  },
+  {
+    "start": "12:30",
+    "end": "20:30",
+    "location": "Delhi NCR",
+    "requiredSkill": "BlockChain_Developer"
+  }
+]

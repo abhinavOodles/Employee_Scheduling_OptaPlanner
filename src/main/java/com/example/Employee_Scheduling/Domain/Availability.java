@@ -6,6 +6,7 @@ import lombok.*;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @AllArgsConstructor
@@ -20,9 +21,9 @@ public class Availability {
     @GeneratedValue
     private Long id  ;
 
-    private LocalTime startTime ;
+    private LocalDateTime startTime ;
 
-    private LocalTime endTime ;
+    private LocalDateTime endTime ;
 
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType;
@@ -32,7 +33,7 @@ public class Availability {
 
 
 
-    public Availability(AvailabilityType availabilityType, LocalTime startTime, LocalTime endTime, Employee employee) {
+    public Availability(AvailabilityType availabilityType, LocalDateTime startTime, LocalDateTime endTime, Employee employee) {
         this.availabilityType = availabilityType;
         this.startTime = startTime;
         this.endTime = endTime;

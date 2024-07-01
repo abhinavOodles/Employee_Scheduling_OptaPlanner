@@ -1,0 +1,21 @@
+[{
+  "employee": "ABCD",
+  "startTime":"09:30" ,
+  "endTime": "18:30"
+},
+  {
+    "employee": "Chandu",
+    "startTime":"09:30" ,
+    "endTime": "18:30"
+  },
+  {
+    "employee": "Champion",
+    "startTime":"09:30" ,
+    "endTime": "18:30"
+  },
+  {
+    "employee": "",
+    "startTime":"" ,
+    "endTime": ""
+  }
+]

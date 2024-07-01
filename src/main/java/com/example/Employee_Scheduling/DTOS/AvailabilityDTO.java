@@ -10,7 +10,7 @@ import java.time.LocalTime;
 public class AvailabilityDTO {
 
     private Employee employee ;
-    private LocalTime localTime ;
+    private LocalTime startTime ;
     private LocalTime endTime ;
 //    private AvailabilityType availabilityType ;
 }
