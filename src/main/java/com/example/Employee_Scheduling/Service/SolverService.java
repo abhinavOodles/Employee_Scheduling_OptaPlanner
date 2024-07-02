@@ -17,8 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,16 +34,16 @@ public class SolverService {
     @Autowired
     private ShiftRepository shiftRepository ;
 
-    private SolutionManager<EmployeeScheduling, HardSoftScore> solutionManager ;
+   private SolutionManager<EmployeeScheduling, HardSoftScore> solutionManager ;
     private SolverManager<EmployeeScheduling,String>  solverManager ;
 
 
-//    SolverService() {
-//        SolverConfig solverConfig = SolverConfig.createFromXmlResource("SolverConfig.xml");
-//        this.solverManager  = SolverManager.create(solverConfig, new SolverManagerConfig());
-//        SolverFactory<EmployeeScheduling> solverFactory = SolverFactory.create(solverConfig);
-//        this.solutionManager = SolutionManager.create(solverFactory);
-//    }
+    SolverService() {
+        SolverConfig solverConfig = SolverConfig.createFromXmlResource("SolverConfig.xml");
+        this.solverManager  = SolverManager.create(solverConfig, new SolverManagerConfig());
+        SolverFactory<EmployeeScheduling> solverFactory = SolverFactory.create(solverConfig);
+        this.solutionManager = SolutionManager.create(solverFactory);
+    }
 
     public List<Shift> solver ()  {
         EmployeeScheduling employeeScheduling = new EmployeeScheduling() ;

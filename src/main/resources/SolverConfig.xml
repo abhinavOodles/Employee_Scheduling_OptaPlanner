@@ -5,7 +5,7 @@
     <entityClass>com.example.Employee_Scheduling.Domain.Shift</entityClass>
 
     <scoreDirectorFactory>
-        <constraintProviderClass> com.example.Employee_Scheduling.SolutionProvider.ConstraintsProvider</constraintProviderClass>
+        <constraintProviderClass> com.example.Employee_Scheduling.SolutuionProvider.constraintProvider</constraintProviderClass>
         <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
     </scoreDirectorFactory>
     <constructionHeuristic>

@@ -13,7 +13,7 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 import java.time.LocalDateTime;
 
 
-@PlanningEntity()
+@PlanningEntity
 @Getter
 @Setter
 @AllArgsConstructor

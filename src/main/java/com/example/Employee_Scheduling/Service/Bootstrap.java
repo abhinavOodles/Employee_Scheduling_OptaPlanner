@@ -25,14 +25,13 @@ import java.util.List;
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private static final Logger log = LoggerFactory.getLogger(Bootstrap.class);
 
-
-
     @Autowired
     private EmployeeRepository employeeRepository ;
     @Autowired
     private ShiftRepository shiftRepository ;
     @Autowired
     private AvailabilityRepository availabilityRepository ;
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         if (employeeRepository.count() < 1) {
@@ -99,7 +98,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
         }
         catch (Exception e){
-            throw new Exception("Some Error occured");
+            throw new Exception("Some Error Occurred");
         }
     }
 
