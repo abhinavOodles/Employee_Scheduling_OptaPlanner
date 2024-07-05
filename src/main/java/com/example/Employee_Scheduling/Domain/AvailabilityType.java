@@ -4,5 +4,6 @@ public enum AvailabilityType {
     DESIRED,
     UNDESIRED,
     UNAVAILABLE,
+    AVAILABLE,
     ABSENT;
 }

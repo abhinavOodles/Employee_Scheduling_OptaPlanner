@@ -1,21 +1,17 @@
 [{
   "employee": "ABCD",
-  "startTime":"09:30" ,
-  "endTime": "18:30"
+  "availabilityType":"AVAILABLE"
 },
   {
     "employee": "Chandu",
-    "startTime":"09:30" ,
-    "endTime": "18:30"
+    "availabilityType":"UNAVAILABLE"
   },
   {
     "employee": "Champion",
-    "startTime":"09:30" ,
-    "endTime": "18:30"
+    "availabilityType": "DESIRED"
   },
   {
     "employee":  "Nitin Joshi",
-    "startTime":"20:30" ,
-    "endTime": "04:30"
+    "availabilityType": "UNDESIRED"
   }
 ]

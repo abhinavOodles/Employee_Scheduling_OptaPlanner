@@ -1,26 +1,16 @@
 [{
-  "name" :  "ABCD" ,
-   "skill" : "Java" ,
-  "availability": "ABSENT"
+  "name" :  "ABCD"
+
 },
   {
-    "name" :  "Chandu" ,
-    "skill" : "Web_Development" ,
-    "availability": "Available"
+    "name" :  "Chandu"
+
   },
   {
-    "name" :  "Champion" ,
-    "skill" : "FrontEnd_Development" ,
-    "availability": "Desired"
+    "name" :  "Champion"
+
   },
   {
-    "name" :  "Champion" ,
-    "skill" : "FrontEnd_Development" ,
-    "availability": "UNAVAILABLE"
-  },
-  {
-    "name" :  "Nitin Joshi" ,
-    "skill" : "BlockChain_Developer" ,
-    "availability": "Desired"
+    "name" :  "Nitin Joshi"
   }
 ]

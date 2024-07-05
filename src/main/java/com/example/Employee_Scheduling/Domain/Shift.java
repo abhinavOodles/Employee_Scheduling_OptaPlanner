@@ -1,8 +1,8 @@
 package com.example.Employee_Scheduling.Domain;
 
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
@@ -19,11 +19,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Shift {
 
     @Id
     @PlanningId
     @GeneratedValue
+    @JsonIgnore
     private Long id;
 
     private LocalDateTime startTime;
