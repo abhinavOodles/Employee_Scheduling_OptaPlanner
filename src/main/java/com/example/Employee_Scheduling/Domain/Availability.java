@@ -27,22 +27,23 @@ public class Availability {
     private Long id  ;
 
     @JsonFormat(pattern = "HH:mm:ss")
-    private LocalTime startTime ;
+
+    private LocalDateTime startTime ;
 
     @JsonFormat(pattern = "HH:mm:ss")
-    private LocalTime endTime ;
+    private LocalDateTime endTime ;
 
     @Enumerated(EnumType.STRING)
     @JsonIgnore
     private AvailabilityType availabilityType;
 
     @ManyToOne
-    @JsonIgnore
+    @EqualsAndHashCode.Exclude
     private Employee employee ;
 
 
 
-    public Availability(AvailabilityType availabilityType, LocalTime startTime, LocalTime endTime, Employee employee) {
+    public Availability(AvailabilityType availabilityType, LocalDateTime startTime, LocalDateTime endTime, Employee employee) {
         this.availabilityType = availabilityType;
         this.startTime = startTime;
         this.endTime = endTime;

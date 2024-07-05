@@ -7,5 +7,5 @@ import lombok.Data;
 @JsonIgnoreProperties
 public class SkillDTO {
 
-    public String skillName ;
+    private String skillName ;
 }

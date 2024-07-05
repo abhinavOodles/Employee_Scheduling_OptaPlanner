@@ -69,7 +69,7 @@ public class constraintProvider implements ConstraintProvider {
         LocalDateTime secondEndingTime = shift2.getEndTime();
 
 
-        if ((firstStartingTime.isAfter(secondStartingTime)) && (firstEndingTime.isBefore(secondEndingTime))) {
+        if ((firstStartingTime.isAfter(secondStartingTime)) && (firstEndingTime.isBefore(secondEndingTime))){
             return true;
         }
         return false ;

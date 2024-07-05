@@ -1,16 +1,37 @@
-[{
-  "name" :  "ABCD"
-
-},
+[
   {
-    "name" :  "Chandu"
+    "name": "ABCD",
+    "skills": [
+      {
+        "skillName": "java"
+      }
+    ],
+    "availability": [
+      {
+        "startTime": "2023-07-05 10:30",
+        "endTime": "2023-07-05 18:30",
+        "employee": "ABCD",
+        "availabilityType": "AVAILABLE"
+      }
+    ]
 
-  },
-  {
-    "name" :  "Champion"
-
-  },
-  {
-    "name" :  "Nitin Joshi"
   }
 ]
+
+//  {
+//    "name" :  "Chandu",
+//    "skills": ["angular"],
+//    "availability": ["AVAILABLE"]
+//  },
+//  {
+//    "name" :  "Champion",
+//    "skills": ["spring-boot"],
+//    "availability": ["UNAVAILABLE"]
+//
+//  },
+//  {
+//    "name" :  "Nitin Joshi",
+//    "skills": ["React"],
+//    "availability": ["UNDESIRED"]
+//  }
+//]

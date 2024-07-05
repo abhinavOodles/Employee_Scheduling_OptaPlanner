@@ -7,8 +7,8 @@ import com.example.Employee_Scheduling.Domain.Shift;
 import com.example.Employee_Scheduling.Repository.AvailabilityRepository;
 import com.example.Employee_Scheduling.Repository.EmployeeRepository;
 import com.example.Employee_Scheduling.Repository.ShiftRepository;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.transaction.Transactional;
 import org.drools.io.ClassPathResource;
 import org.slf4j.Logger;
@@ -16,12 +16,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,11 +67,16 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     private void saveEmployee() throws IOException {
+
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule()); // Register JavaTimeModule with ObjectMapper
+
+        // Your deserialization code
         List<EmployeeDTO> employeeDTOs = mapper.readValue(
                 new ClassPathResource("json/Employee.json").getInputStream(),
                 new com.fasterxml.jackson.core.type.TypeReference<List<EmployeeDTO>>() {}
         );
+
 
         List<Employee> employees = employeeDTOs.stream()
                 .map(this::mapEmployeeDTOToEmployee)
@@ -82,12 +86,14 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Employees saved Total count: {}", employeeRepository.count());
     }
 
+
+
     private Employee mapEmployeeDTOToEmployee(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
 
         employee.setName(employeeDTO.getName());
-//        employee.setSkills(employeeDTO.getSkills());
-      //  employee.setAvailability(employeeDTO.getAvailability());
+       employee.setSkills(employeeDTO.getSkills());
+       employee.setAvailability(employeeDTO.getAvailability());
         return employee;
     }
 

@@ -21,15 +21,13 @@ public class OptAvailability {
     private Long id;
 
     @JsonFormat(pattern = "HH:mm:ss")
-    private LocalTime startTime;
+    private LocalDateTime startTime;
 
     @JsonFormat(pattern = "HH:mm:ss")
-    private LocalTime endTime;
+    private LocalDateTime endTime;
 
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType;
 
-    @ManyToOne
-    private Employee employee;
 }
 

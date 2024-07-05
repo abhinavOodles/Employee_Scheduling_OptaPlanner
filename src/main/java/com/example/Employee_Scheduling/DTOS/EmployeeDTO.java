@@ -16,5 +16,5 @@ public class EmployeeDTO {
 
     private List<Skill> skills;
 
-    private Availability availability;
+    private List<Availability> availability;
 }

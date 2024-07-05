@@ -35,17 +35,18 @@ public class Employee  {
 
     @InverseRelationShadowVariable(sourceVariableName = "employee")
     @OneToMany
-    @JsonIgnore
     private Set<Shift> shifts = new HashSet<>();
 
     public Employee(String name) {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+
     @JsonIgnore
+    @Transient
     private List<OptAvailability> availabilities;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Availability availability;
+    @OneToMany(cascade = CascadeType.ALL)
+
+    private List<Availability> availability;
 }

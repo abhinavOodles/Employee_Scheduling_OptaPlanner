@@ -14,10 +14,7 @@ import org.optaplanner.core.api.domain.lookup.PlanningId;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class Skill {
 
     @PlanningId
