@@ -26,7 +26,7 @@ public class DateTimeDeserializer extends JsonDeserializer<LocalDateTime> {
             LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
             return localDateTime;
         } catch (DateTimeParseException ex) {
-            return LocalDateTime.of(LocalDate.of(1111,11,011), LocalTime.of(0,0));
+            return LocalDateTime.of(LocalDate.of(1111,11,11), LocalTime.of(0,0));
         } catch (Exception e){
             return null;
         }

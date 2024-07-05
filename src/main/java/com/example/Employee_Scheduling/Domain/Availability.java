@@ -1,10 +1,13 @@
 package com.example.Employee_Scheduling.Domain;
 
 
+import com.example.Employee_Scheduling.DateTimeDeserializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 
@@ -23,18 +26,15 @@ public class Availability {
     @PlanningId
     @Id
     @GeneratedValue
-    @JsonIgnore
     private Long id  ;
 
-    @JsonFormat(pattern = "HH:mm:ss")
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime startTime ;
 
-    @JsonFormat(pattern = "HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime endTime ;
 
     @Enumerated(EnumType.STRING)
-    @JsonIgnore
     private AvailabilityType availabilityType;
 
     @ManyToOne

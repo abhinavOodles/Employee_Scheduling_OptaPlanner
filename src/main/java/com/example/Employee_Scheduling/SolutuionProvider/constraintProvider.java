@@ -138,8 +138,7 @@ public class constraintProvider implements ConstraintProvider {
 
     private Constraint breakShouldNotBeOverlapWithShift(ConstraintFactory constraintFactory) {
 
-        return
-                constraintFactory
+        return constraintFactory
                         .forEachUniquePair(Shift.class,Joiners.equal(Shift::getEmployee))
                         .filter((shift1,shift2) -> checkOverLappingShift(shift1 , shift2))
                         .penalize(HardSoftScore.ONE_SOFT)
