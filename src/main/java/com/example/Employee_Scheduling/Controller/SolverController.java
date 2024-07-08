@@ -1,11 +1,16 @@
 package com.example.Employee_Scheduling.Controller;
 
+import com.example.Employee_Scheduling.Domain.Employee;
 import com.example.Employee_Scheduling.Service.SolverService;
+import jakarta.persistence.GeneratedValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 @RestController
@@ -21,4 +26,10 @@ public class SolverController {
     private ResponseEntity<?> solving ()  {
         return ResponseEntity.ok(solverService.solver());
     }
+
+
+//    @GetMapping
+//    private  void getEmployee(){
+//         solverService.getEmployee();
+//    }
 }

@@ -91,4 +91,28 @@ public class SolverService {
 
         return solution.getShifts() ;
     }
+
+//    public void getEmployee() {
+//
+//        List<Employee> employeeList = employeeRepository.findAll();
+//        List<Availability> availabilities = availabilityRepository.findAll();
+//        List<Shift> shifts = shiftRepository.findAll() ;
+//
+//
+//        for (Employee employee : employeeList){
+//            System.out.print(employee);
+//            System.out.println();
+//        }
+//
+//        for (Availability availability: availabilities){
+//            System.out.print(availability);
+//            System.out.println();
+//        }
+//
+//        for (Shift shift : shifts){
+//            System.out.println(shift);
+//            System.out.println();
+//        }
+//
+//    }
 }

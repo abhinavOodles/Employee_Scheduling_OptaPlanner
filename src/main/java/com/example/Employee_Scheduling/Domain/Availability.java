@@ -26,6 +26,7 @@ public class Availability {
     @PlanningId
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id  ;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -37,8 +38,7 @@ public class Availability {
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType;
 
-    @ManyToOne
-    @EqualsAndHashCode.Exclude
+    @ManyToOne(cascade =CascadeType.ALL)
     private Employee employee ;
 
 

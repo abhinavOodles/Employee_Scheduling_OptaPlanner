@@ -45,8 +45,8 @@ public class Employee  {
 
 
 
-    @Transient
     @JsonIgnore
+    @Transient
     private List<OptAvailability> availabilities;
 
     @OneToMany(cascade = CascadeType.ALL)
