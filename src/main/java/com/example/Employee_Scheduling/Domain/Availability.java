@@ -5,15 +5,12 @@ import com.example.Employee_Scheduling.DateTimeDeserializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39,6 +36,7 @@ public class Availability {
     private AvailabilityType availabilityType;
 
     @ManyToOne(cascade =CascadeType.ALL)
+    @JsonIgnore
     private Employee employee ;
 
 

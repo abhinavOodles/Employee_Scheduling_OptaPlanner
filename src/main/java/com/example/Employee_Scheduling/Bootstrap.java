@@ -1,12 +1,18 @@
 package com.example.Employee_Scheduling;
 
+import com.example.Employee_Scheduling.DTOS.AvailabilityDTO;
 import com.example.Employee_Scheduling.DTOS.EmployeeDTO;
+import com.example.Employee_Scheduling.DTOS.ShiftDTO;
+import com.example.Employee_Scheduling.DTOS.SkillDTO;
 import com.example.Employee_Scheduling.Domain.Availability;
 import com.example.Employee_Scheduling.Domain.Employee;
 import com.example.Employee_Scheduling.Domain.Shift;
+import com.example.Employee_Scheduling.Domain.Skill;
 import com.example.Employee_Scheduling.Repository.AvailabilityRepository;
 import com.example.Employee_Scheduling.Repository.EmployeeRepository;
 import com.example.Employee_Scheduling.Repository.ShiftRepository;
+import com.example.Employee_Scheduling.Repository.SkillRepository;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.transaction.Transactional;
@@ -39,6 +45,9 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     private AvailabilityRepository availabilityRepository;
 
+    @Autowired
+    private SkillRepository skillRepository ;
+
 
     @Override
     @Transactional
@@ -60,6 +69,13 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
                 saveAvailability();
             } else {
                 log.info("Availability data already exists.");
+            }
+            if(skillRepository.count()<1){
+                saveSkill();
+            }
+            else{
+                log.info("Skill data already exists.");
+
             }
         } catch (Exception e) {
             log.error("Error during bootstrap data initialization.", e);
@@ -92,29 +108,86 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         Employee employee = new Employee();
 
         employee.setName(employeeDTO.getName());
-       employee.setSkills(employeeDTO.getSkills());
-       employee.setAvailability(employeeDTO.getAvailability());
+        employee.setSkills(employeeDTO.getSkills());
+        employee.setAvailability(employeeDTO.getAvailability());
         return employee;
     }
 
     private void saveShift() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Shift> shifts = mapper.readValue(
+        List<ShiftDTO> shiftDTO = mapper.readValue(
                 new ClassPathResource("json/Shift.json").getInputStream(),
-                new com.fasterxml.jackson.core.type.TypeReference<List<Shift>>() {}
+                new TypeReference<List<ShiftDTO>>() {}
         );
-        shiftRepository.saveAll(shifts);
+        List<Shift> shift = shiftDTO.stream()
+                .map(this::mapShiftDTOToEmployee)
+                .collect(Collectors.toList());
+
+        shiftRepository.saveAll(shift) ;
+
         log.info("Shifts saved Total count: {}", shiftRepository.count());
     }
 
+    private Shift mapShiftDTOToEmployee (ShiftDTO shiftDTO){
+        Shift shift = new Shift() ;
+
+       // shift.setEmployee(shiftDTO.getEmployee());
+        shift.setStartTime(shiftDTO.getStartTime());
+        shift.setEndTime(shiftDTO.getEndTime());
+        shift.setRequiredSkill(shiftDTO.getRequiredSkill());
+        shift.setLocation(shiftDTO.getLocation());
+
+        return shift ;
+    }
     private void saveAvailability() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Availability> availabilities = mapper.readValue(
+        List<AvailabilityDTO> availabilities1 = mapper.readValue(
                 new ClassPathResource("json/Availability.json").getInputStream(),
-                new com.fasterxml.jackson.core.type.TypeReference<List<Availability>>() {}
+                new com.fasterxml.jackson.core.type.TypeReference<List<AvailabilityDTO>>() {}
         );
+
+        List<Availability> availabilities = availabilities1.stream()
+                        .map(this::mapAvailabilityDTOTOAvailability)
+                                .collect(Collectors.toList()) ;
+
         availabilityRepository.saveAll(availabilities);
         log.info("Availabilities saved Total count: {}", availabilityRepository.count());
+    }
+
+    private Availability mapAvailabilityDTOTOAvailability (AvailabilityDTO availabilityDTO) {
+
+        Availability availability = new Availability();
+
+        //availability.setEmployee(availabilityDTO.getEmployee());
+        availability.setStartTime(availabilityDTO.getStartTime());
+        availability.setEndTime(availabilityDTO.getEndTime());
+        availability.setAvailabilityType(availabilityDTO.getAvailabilityType());
+
+        return availability ;
+    }
+
+    private void saveSkill () throws  IOException{
+        ObjectMapper objectMapper = new ObjectMapper() ;
+        List<SkillDTO> skillDTOS =objectMapper.readValue(
+                new ClassPathResource("json/Skill.json").getInputStream(),
+                new TypeReference<List<SkillDTO>>() {}
+        );
+
+        List<Skill> shifts = skillDTOS.stream()
+                .map(this::mapSkillDTOTOSkill)
+                .collect(Collectors.toList()) ;
+
+        skillRepository.saveAll(shifts)  ;
+        log.info("Skill saved Total count: {}", skillRepository.count());
+
+    }
+
+    private Skill mapSkillDTOTOSkill(SkillDTO skillDTO) {
+      Skill skill = new Skill() ;
+
+      skill.setSkillName(skillDTO.getSkillName());
+
+      return skill ;
     }
 }
 

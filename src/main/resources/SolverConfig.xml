@@ -3,6 +3,7 @@
 
     <solutionClass>com.example.Employee_Scheduling.Domain.EmployeeScheduling</solutionClass>
     <entityClass>com.example.Employee_Scheduling.Domain.Shift</entityClass>
+    <moveThreadCount>AUTO</moveThreadCount>
 
     <scoreDirectorFactory>
         <constraintProviderClass> com.example.Employee_Scheduling.SolutuionProvider.constraintProvider</constraintProviderClass>

@@ -14,10 +14,14 @@ public class ShiftDTO {
 
     @JsonDeserialize(using = DateTimeDeserializer.class)
     private LocalDateTime startTime;
+
     @JsonDeserialize(using = DateTimeDeserializer.class)
     private LocalDateTime endTime;
+
     private String location;
+
     private String requiredSkill;
-    private Employee employee ;
+
+
 
 }

@@ -14,24 +14,39 @@
         "availabilityType": "AVAILABLE"
       }
     ]
+  },
+  {
+    "name": "Chandu",
+    "skills": [
+      {
+        "skillName": "C++"
+      }
+    ],
+    "availability": [
+      {
+        "startTime": "2023-08-05 09:30",
+        "endTime": "2023-08-05 17:30",
+        "employee": "Chandu",
+        "availabilityType": "UNAVAILABLE"
+      }
+    ]
+  },
 
+  {
+    "name": "CHAMPION",
+    "skills": [
+      {
+        "skillName": "Web Development"
+      }
+    ],
+    "availability": [
+      {
+        "startTime": "2023-07-06 11:30",
+        "endTime": "2023-07-06 20:30",
+        "employee": "CHAMPION",
+        "availabilityType": "UNDESIRED"
+      }
+    ]
   }
-]
 
-//  {
-//    "name" :  "Chandu",
-//    "skills": ["angular"],
-//    "availability": ["AVAILABLE"]
-//  },
-//  {
-//    "name" :  "Champion",
-//    "skills": ["spring-boot"],
-//    "availability": ["UNAVAILABLE"]
-//
-//  },
-//  {
-//    "name" :  "Nitin Joshi",
-//    "skills": ["React"],
-//    "availability": ["UNDESIRED"]
-//  }
-//]
+]

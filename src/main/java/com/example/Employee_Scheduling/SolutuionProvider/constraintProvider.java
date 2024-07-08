@@ -37,7 +37,7 @@ public class constraintProvider implements ConstraintProvider {
         }
 
     private boolean checkAvailabilityAtATimeSlot(Shift shift) {
-        if (shift.getEmployee().getAvailabilities().equals(AvailabilityType.ABSENT)){
+        if (shift.getEmployee().getAvailability().equals(AvailabilityType.ABSENT)){
             return true ;
         }
         return false ;
@@ -53,7 +53,7 @@ public class constraintProvider implements ConstraintProvider {
     }
 
     private boolean checkTimings (Shift shift){
-        if(shift.getEmployee().getAvailabilities().equals(AvailabilityType.UNAVAILABLE)){
+        if(shift.getEmployee().getAvailability().equals(AvailabilityType.UNAVAILABLE)){
             return true ;
         }
         else {
@@ -94,7 +94,7 @@ public class constraintProvider implements ConstraintProvider {
     }
 
     private boolean getPenaltyForEmployeeAvailability(Shift shift, String name) {
-        if (shift.getEmployee().getAvailabilities().equals(name)){
+        if (shift.getEmployee().getAvailability().equals(name)){
             return true  ;
         }
         else{
@@ -120,7 +120,7 @@ public class constraintProvider implements ConstraintProvider {
     }
 
     private boolean checkAvailabilityType(Shift shift, AvailabilityType availabilityType) {
-        if (shift.getEmployee().getAvailabilities().equals(availabilityType)){
+        if (shift.getEmployee().getAvailability().equals(availabilityType)){
             return true ;
         }
         else{
@@ -155,16 +155,16 @@ public class constraintProvider implements ConstraintProvider {
     }
 
     private boolean checkAvailability(Shift shift) {
-        if (shift.getEmployee().getAvailabilities().equals(AvailabilityType.UNAVAILABLE)){
+        if (shift.getEmployee().getAvailability().equals(AvailabilityType.UNAVAILABLE)){
             return true ;
     }
-        else if (shift.getEmployee().getAvailabilities().equals(AvailabilityType.DESIRED)){
+        else if (shift.getEmployee().getAvailability().equals(AvailabilityType.DESIRED)){
             return true ;
         }
-        else if (shift.getEmployee().getAvailabilities().equals(AvailabilityType.UNDESIRED)){
+        else if (shift.getEmployee().getAvailability().equals(AvailabilityType.UNDESIRED)){
             return true ;
         }
-        else if (shift.getEmployee().getAvailabilities().equals(AvailabilityType.ABSENT)){
+        else if (shift.getEmployee().getAvailability().equals(AvailabilityType.ABSENT)){
             return true ;
         }
         else {

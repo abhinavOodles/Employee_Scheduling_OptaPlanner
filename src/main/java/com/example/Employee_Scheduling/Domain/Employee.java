@@ -31,7 +31,6 @@ public class Employee  {
     private String name;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<Skill> skills ;
 
     @InverseRelationShadowVariable(sourceVariableName = "employee")
@@ -47,7 +46,7 @@ public class Employee  {
 
     @JsonIgnore
     @Transient
-    private List<OptAvailability> availabilities;
+    private List<OptAvailability> optAvailabilities;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Availability> availability;

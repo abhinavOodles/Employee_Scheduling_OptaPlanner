@@ -17,6 +17,6 @@ public class EmployeeDTO {
 
     private List<Skill> skills;
 
-    @JsonFormat(pattern = "")
+
     private List<Availability> availability;
 }

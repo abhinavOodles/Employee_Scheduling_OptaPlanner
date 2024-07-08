@@ -8,24 +8,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AvailabilityDTO {
 
-   private Employee employee ;
+
 
    @JsonDeserialize(using = DateTimeDeserializer.class)
    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime startTime ;
 
- @JsonDeserialize(using = DateTimeDeserializer.class)
- @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+   @JsonDeserialize(using = DateTimeDeserializer.class)
+   @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime endTime ;
 
     @Enumerated(EnumType.STRING)
