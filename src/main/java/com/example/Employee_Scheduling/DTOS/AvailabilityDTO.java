@@ -30,5 +30,7 @@ public class AvailabilityDTO {
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType ;
 
+    private Employee employee ;
+
 
 }

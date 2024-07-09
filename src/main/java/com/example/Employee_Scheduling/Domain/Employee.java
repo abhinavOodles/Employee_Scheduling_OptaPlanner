@@ -30,13 +30,12 @@ public class Employee  {
 
     private String name;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Skill> skills ;
 
     @InverseRelationShadowVariable(sourceVariableName = "employee")
-    @OneToMany
-    @JsonIgnore
-    private Set<Shift> shifts = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Shift> shifts ;
 
     public Employee(String name) {
         this.name = name;

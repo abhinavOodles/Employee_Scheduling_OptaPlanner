@@ -27,6 +27,9 @@ public class EmployeeScheduling {
     @PlanningEntityCollectionProperty
     private List<Shift> shifts;
 
+    @ProblemFactCollectionProperty
+    private List<Skill> skills ;
+
     @PlanningScore
     private HardSoftScore score;
 

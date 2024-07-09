@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 
 @RestController
 @RequestMapping("/solver")
@@ -19,7 +21,7 @@ public class SolverController {
      SolverService solverService ;
 
     @PostMapping("/start")
-    private ResponseEntity<?> solving ()  {
+    private ResponseEntity<?> solving () throws IOException {
         return ResponseEntity.ok(solverService.solver());
     }
 

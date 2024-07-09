@@ -110,6 +110,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         employee.setName(employeeDTO.getName());
         employee.setSkills(employeeDTO.getSkills());
         employee.setAvailability(employeeDTO.getAvailability());
+        employee.setShifts(employeeDTO.getShifts());
         return employee;
     }
 
@@ -131,7 +132,6 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private Shift mapShiftDTOToEmployee (ShiftDTO shiftDTO){
         Shift shift = new Shift() ;
 
-       // shift.setEmployee(shiftDTO.getEmployee());
         shift.setStartTime(shiftDTO.getStartTime());
         shift.setEndTime(shiftDTO.getEndTime());
         shift.setRequiredSkill(shiftDTO.getRequiredSkill());
@@ -158,10 +158,11 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
         Availability availability = new Availability();
 
-        //availability.setEmployee(availabilityDTO.getEmployee());
+        availability.setEmployee(availabilityDTO.getEmployee());
         availability.setStartTime(availabilityDTO.getStartTime());
         availability.setEndTime(availabilityDTO.getEndTime());
         availability.setAvailabilityType(availabilityDTO.getAvailabilityType());
+
 
         return availability ;
     }
@@ -186,6 +187,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
       Skill skill = new Skill() ;
 
       skill.setSkillName(skillDTO.getSkillName());
+      skill.setEmployee(skillDTO.getEmployee());
 
       return skill ;
     }

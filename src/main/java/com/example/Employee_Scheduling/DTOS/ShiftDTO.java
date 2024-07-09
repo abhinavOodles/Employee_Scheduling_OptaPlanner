@@ -23,5 +23,4 @@ public class ShiftDTO {
     private String requiredSkill;
 
 
-
 }

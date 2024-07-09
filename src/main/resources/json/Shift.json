@@ -2,24 +2,31 @@
   "startTime": "2023-07-05 10:30",
   "endTime": "2023-07-05 18:30",
   "location": "Online",
-  "requiredSkill": "Java"
+  "requiredSkill": "Java",
+  "employee": [{
+    "name": "ABCD"
+  }
+  ]
 },
   {
     "startTime": "2023-08-05 09:30",
     "endTime": "2023-08-05 17:30",
     "location": "Hybrid",
-    "requiredSkill": "C++"
+    "requiredSkill": "C++",
+    "employee": [{
+      "name": "Chandu"
+    }
+    ]
   },
   {
     "startTime": "2023-08-05 09:30",
     "endTime": "2023-08-05 14:30",
     "location": "Gurgaon",
-    "requiredSkill": "Web_Development"
-  },
-  {
-    "startTime": "2023-08-05 10:30",
-    "endTime": "2023-08-05 19:30",
-    "location": "Gurgaon",
-    "requiredSkill": "Backend_Development "
+    "requiredSkill": "Web_Development",
+    "employee": [{
+      "name": "Champion"
     }
+    ]
+  }
+
 ]

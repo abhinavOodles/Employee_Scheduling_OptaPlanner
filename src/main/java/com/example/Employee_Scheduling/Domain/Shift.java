@@ -28,6 +28,7 @@ public class Shift {
     @JsonIgnore
     private Long id;
 
+
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String location ;
@@ -36,7 +37,6 @@ public class Shift {
 
     @PlanningVariable
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
     private Employee employee ;
 
 
