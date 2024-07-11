@@ -46,7 +46,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private AvailabilityRepository availabilityRepository;
 
     @Autowired
-    private SkillRepository skillRepository ;
+    private SkillRepository skillRepository;
 
 
     @Override
@@ -70,13 +70,12 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
             } else {
                 log.info("Availability data already exists.");
             }
-            if(skillRepository.count()<1){
-                saveSkill();
-            }
-            else{
-                log.info("Skill data already exists.");
-
-            }
+//            if (skillRepository.count() < 1) {
+//                saveSkill();
+//            } else {
+//                log.info("Skill data already exists.");
+//
+//            }
         } catch (Exception e) {
             log.error("Error during bootstrap data initialization.", e);
         }
@@ -90,7 +89,8 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         // Your deserialization code
         List<EmployeeDTO> employeeDTOs = mapper.readValue(
                 new ClassPathResource("json/Employee.json").getInputStream(),
-                new com.fasterxml.jackson.core.type.TypeReference<List<EmployeeDTO>>() {}
+                new com.fasterxml.jackson.core.type.TypeReference<List<EmployeeDTO>>() {
+                }
         );
 
 
@@ -101,7 +101,6 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         employeeRepository.saveAll(employees);
         log.info("Employees saved Total count: {}", employeeRepository.count());
     }
-
 
 
     private Employee mapEmployeeDTOToEmployee(EmployeeDTO employeeDTO) {
@@ -118,27 +117,29 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         ObjectMapper mapper = new ObjectMapper();
         List<ShiftDTO> shiftDTO = mapper.readValue(
                 new ClassPathResource("json/Shift.json").getInputStream(),
-                new TypeReference<List<ShiftDTO>>() {}
+                new TypeReference<List<ShiftDTO>>() {
+                }
         );
         List<Shift> shift = shiftDTO.stream()
                 .map(this::mapShiftDTOToEmployee)
                 .collect(Collectors.toList());
 
-        shiftRepository.saveAll(shift) ;
+        shiftRepository.saveAll(shift);
 
         log.info("Shifts saved Total count: {}", shiftRepository.count());
     }
 
-    private Shift mapShiftDTOToEmployee (ShiftDTO shiftDTO){
-        Shift shift = new Shift() ;
+    private Shift mapShiftDTOToEmployee(ShiftDTO shiftDTO) {
+        Shift shift = new Shift();
 
         shift.setStartTime(shiftDTO.getStartTime());
         shift.setEndTime(shiftDTO.getEndTime());
         shift.setRequiredSkill(shiftDTO.getRequiredSkill());
         shift.setLocation(shiftDTO.getLocation());
 
-        return shift ;
+        return shift;
     }
+
     private void saveAvailability() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         List<AvailabilityDTO> availabilities1 = mapper.readValue(
@@ -167,29 +168,30 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         return availability ;
     }
 
-    private void saveSkill () throws  IOException{
-        ObjectMapper objectMapper = new ObjectMapper() ;
-        List<SkillDTO> skillDTOS =objectMapper.readValue(
-                new ClassPathResource("json/Skill.json").getInputStream(),
-                new TypeReference<List<SkillDTO>>() {}
-        );
+//    private void saveSkill () throws  IOException{
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        List<SkillDTO> skillDTOS =objectMapper.readValue(
+//                new ClassPathResource("json/Skill.json").getInputStream(),
+//                new TypeReference<List<SkillDTO>>() {}
+//        );
+//
+//        List<Skill> shifts = skillDTOS.stream()
+//                .map(this::mapSkillDTOTOSkill)
+//                .collect(Collectors.toList()) ;
+//
+//        skillRepository.saveAll(shifts)  ;
+//        log.info("Skill saved Total count: {}", skillRepository.count());
+//
+//    }
+//
+//    private Skill mapSkillDTOTOSkill(SkillDTO skillDTO) {
+//      Skill skill = new Skill() ;
+//
+//      skill.setSkillName(skillDTO.getSkillName());
+//      skill.setEmployee(skillDTO.getEmployee());
+//
+//      return skill ;
+//    }
 
-        List<Skill> shifts = skillDTOS.stream()
-                .map(this::mapSkillDTOTOSkill)
-                .collect(Collectors.toList()) ;
-
-        skillRepository.saveAll(shifts)  ;
-        log.info("Skill saved Total count: {}", skillRepository.count());
-
-    }
-
-    private Skill mapSkillDTOTOSkill(SkillDTO skillDTO) {
-      Skill skill = new Skill() ;
-
-      skill.setSkillName(skillDTO.getSkillName());
-      skill.setEmployee(skillDTO.getEmployee());
-
-      return skill ;
-    }
 }
 

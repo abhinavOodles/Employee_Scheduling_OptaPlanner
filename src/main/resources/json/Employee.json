@@ -47,6 +47,52 @@
         "availabilityType": "UNDESIRED"
       }
     ]
+  },
+  {
+    "name": "Shaurya",
+    "skills": [
+      {
+        "skillName": "BlockChainDevelopment"
+      }
+    ],
+    "availability": [
+      {
+        "startTime": "2024-07-09 09:30",
+        "endTime": "2024-07-09 18:30",
+        "employee": "Shaurya",
+        "availabilityType": "DESIRED"
+      }
+    ]
+  },
+  {
+    "name":"Z",
+    "skills": [
+      {
+        "skillName":"SDE"
+      }],
+    "availability":[
+      {
+        "startTime": "2024-07-11 08:30",
+        "endTime": "2024-07-11 17:30",
+        "employee": "Z",
+        "availabilityType": "AVAILABLE"
+      }
+    ]
+  },
+  {
+    "name":"A",
+    "skills": [
+      {
+        "skillName":"QA"
+      }],
+    "availability":[
+      {
+        "startTime": "2024-07-11 13:30",
+        "endTime": "2024-07-11 23:30",
+        "employee": "A",
+        "availabilityType": "UNAVAILABLE"
+      }
+    ]
   }
-
 ]
+

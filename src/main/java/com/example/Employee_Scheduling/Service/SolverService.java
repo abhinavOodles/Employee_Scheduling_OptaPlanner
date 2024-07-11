@@ -8,6 +8,7 @@ import com.example.Employee_Scheduling.Repository.ShiftRepository;
 import com.example.Employee_Scheduling.Repository.SkillRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.transaction.Transactional;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.solver.SolutionManager;
@@ -90,7 +91,7 @@ public class SolverService {
 
         SolverJob<EmployeeScheduling, String> solverJob = solverManager.solve(jobId, employeeScheduling);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
         // Convert solution to JSON string

@@ -23,5 +23,6 @@ public class Skill {
     private String skillName;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Employee employee ;
 }

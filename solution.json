@@ -1,0 +1,154 @@
+{
+  "problemId" : "de885df0-1429-4e14-96c0-0812eeac6e59",
+  "solverStatus" : "NOT_SOLVING",
+  "terminatedEarly" : false,
+  "finalBestSolution" : {
+    "name" : null,
+    "availabilities" : [ {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "AVAILABLE"
+    }, {
+      "startTime" : "2023-08-05 09:30",
+      "endTime" : "2023-08-05 17:30",
+      "availabilityType" : "UNAVAILABLE"
+    }, {
+      "startTime" : "2023-07-06 11:30",
+      "endTime" : "2023-07-06 20:30",
+      "availabilityType" : "UNDESIRED"
+    }, {
+      "startTime" : "2024-07-09 09:30",
+      "endTime" : "2024-07-09 18:30",
+      "availabilityType" : "DESIRED"
+    }, {
+      "startTime" : "2024-07-11 08:30",
+      "endTime" : "2024-07-11 17:30",
+      "availabilityType" : "AVAILABLE"
+    }, {
+      "startTime" : "2024-07-11 13:30",
+      "endTime" : "2024-07-11 23:30",
+      "availabilityType" : "UNAVAILABLE"
+    } ],
+    "employees" : [ {
+      "name" : "ABCD",
+      "skills" : [ {
+        "skillName" : "java"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "AVAILABLE"
+      } ]
+    }, {
+      "name" : "Chandu",
+      "skills" : [ {
+        "skillName" : "C++"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-08-05 09:30",
+        "endTime" : "2023-08-05 17:30",
+        "availabilityType" : "UNAVAILABLE"
+      } ]
+    }, {
+      "name" : "CHAMPION",
+      "skills" : [ {
+        "skillName" : "Web Development"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-06 11:30",
+        "endTime" : "2023-07-06 20:30",
+        "availabilityType" : "UNDESIRED"
+      } ]
+    }, {
+      "name" : "Shaurya",
+      "skills" : [ {
+        "skillName" : "BlockChainDevelopment"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-09 09:30",
+        "endTime" : "2024-07-09 18:30",
+        "availabilityType" : "DESIRED"
+      } ]
+    }, {
+      "name" : "Z",
+      "skills" : [ {
+        "skillName" : "SDE"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-11 08:30",
+        "endTime" : "2024-07-11 17:30",
+        "availabilityType" : "AVAILABLE"
+      } ]
+    }, {
+      "name" : "A",
+      "skills" : [ {
+        "skillName" : "QA"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-11 13:30",
+        "endTime" : "2024-07-11 23:30",
+        "availabilityType" : "UNAVAILABLE"
+      } ]
+    } ],
+    "shifts" : [ {
+      "startTime" : [ 2023, 7, 5, 10, 30 ],
+      "endTime" : [ 2023, 7, 5, 18, 30 ],
+      "location" : "Online",
+      "requiredSkill" : "Java"
+    }, {
+      "startTime" : [ 2023, 8, 5, 9, 30 ],
+      "endTime" : [ 2023, 8, 5, 17, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "C++"
+    }, {
+      "startTime" : [ 2023, 7, 6, 11, 30 ],
+      "endTime" : [ 2023, 7, 6, 20, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "Web Development"
+    }, {
+      "startTime" : [ 2023, 8, 5, 9, 30 ],
+      "endTime" : [ 2023, 8, 5, 14, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "BlockChainDevelopment"
+    }, {
+      "startTime" : [ 2024, 7, 11, 8, 30 ],
+      "endTime" : [ 2024, 7, 11, 17, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "SDE"
+    }, {
+      "startTime" : [ 2024, 7, 11, 13, 30 ],
+      "endTime" : [ 2024, 7, 11, 23, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "QA"
+    } ],
+    "skills" : [ {
+      "skillName" : "java"
+    }, {
+      "skillName" : "C++"
+    }, {
+      "skillName" : "Web Development"
+    }, {
+      "skillName" : "BlockChainDevelopment"
+    }, {
+      "skillName" : "SDE"
+    }, {
+      "skillName" : "QA"
+    } ],
+    "score" : {
+      "initScore" : 0,
+      "hardScore" : 0,
+      "softScore" : 0,
+      "feasible" : true,
+      "zero" : true,
+      "solutionInitialized" : true
+    },
+    "solverStatus" : null
+  },
+  "solvingDuration" : 5.025000000
+}

@@ -9,10 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class EmployeeSchedulingApplication {
-
 	public static void main(String[] args) throws  Exception {
 		SpringApplication.run(EmployeeSchedulingApplication.class, args);
-
 			}
 		}
 

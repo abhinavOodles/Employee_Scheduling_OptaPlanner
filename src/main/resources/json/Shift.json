@@ -19,14 +19,50 @@
     ]
   },
   {
+    "startTime": "2023-07-06 11:30",
+    "endTime": "2023-07-06 20:30",
+    "location": "Hybrid",
+    "requiredSkill": "Web Development",
+    "employee": [
+      {
+        "name":"Champion"
+      }
+    ],
+    "availabilityType": "UNDESIRED"
+  },
+  {
     "startTime": "2023-08-05 09:30",
     "endTime": "2023-08-05 14:30",
-    "location": "Gurgaon",
-    "requiredSkill": "Web_Development",
+    "location": "Hybrid",
+    "requiredSkill": "BlockChainDevelopment",
+    "employee": [
+      {
+        "name":"Shaurya"
+      }
+    ],
+    "availabilityType": "DESIRED"
+  },
+  {
+    "startTime": "2024-07-11 08:30",
+    "endTime": "2024-07-11 17:30",
+    "location": "Hybrid",
+    "requiredSkill":"SDE" ,
+     "employee": [
+       {
+         "name": "Y"
+       }
+     ],
+    "availabilityType":"AVAILABLE"
+  },
+  {
+    "startTime": "2024-07-11 13:30",
+    "endTime": "2024-07-11 23:30",
+    "location": "Hybrid",
+    "requiredSkill": "QA",
     "employee": [{
-      "name": "Champion"
-    }
-    ]
+      "name": "A"
+    }],
+    "availabilityType": "UNAVAILABLE"
   }
 
 ]

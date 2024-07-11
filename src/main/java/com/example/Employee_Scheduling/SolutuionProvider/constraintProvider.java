@@ -18,12 +18,12 @@ public class constraintProvider implements ConstraintProvider {
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
                 requiredSkill(constraintFactory),
-                unavailableEmployee(constraintFactory),
-                assignEveryShift(constraintFactory),
-                undesiredEmployeeTimeSlot(constraintFactory),
-                breakShouldNotBeOverlapWithShift(constraintFactory),
-                unavailableEmployeeTimeSlot(constraintFactory),
-                absentEmployeeTimeSlot(constraintFactory),
+//                unavailableEmployee(constraintFactory),
+//                assignEveryShift(constraintFactory),
+//                undesiredEmployeeTimeSlot(constraintFactory),
+//                breakShouldNotBeOverlapWithShift(constraintFactory),
+//                unavailableEmployeeTimeSlot(constraintFactory),
+//                absentEmployeeTimeSlot(constraintFactory),
 
         };
     }
