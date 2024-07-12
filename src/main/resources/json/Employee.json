@@ -90,7 +90,23 @@
         "startTime": "2024-07-11 13:30",
         "endTime": "2024-07-11 23:30",
         "employee": "A",
-        "availabilityType": "UNAVAILABLE"
+        "availabilityType": "AVAILABLE"
+      }
+    ]
+  },
+  {
+    "name": "Sa",
+    "skills":[
+      {
+        "skillName": "OT"
+      }
+    ],
+    "availability": [
+      {
+        "startTime" : "2024-08-08 10:30",
+        "endTime": "2024-08-08 18:30",
+        "employee": "Sa",
+        "availability":"UNDESIRED"
       }
     ]
   }

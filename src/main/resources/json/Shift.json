@@ -1,68 +1,45 @@
-[{
-  "startTime": "2023-07-05 10:30",
-  "endTime": "2023-07-05 18:30",
-  "location": "Online",
-  "requiredSkill": "Java",
-  "employee": [{
-    "name": "ABCD"
-  }
-  ]
-},
+[
+  {
+    "startTime": "2023-07-05 10:30",
+    "endTime": "2023-07-05 18:30",
+    "location": "Online",
+    "requiredSkill": "Java"
+  },
   {
     "startTime": "2023-08-05 09:30",
     "endTime": "2023-08-05 17:30",
     "location": "Hybrid",
-    "requiredSkill": "C++",
-    "employee": [{
-      "name": "Chandu"
-    }
-    ]
+    "requiredSkill": "C++"
   },
   {
     "startTime": "2023-07-06 11:30",
     "endTime": "2023-07-06 20:30",
     "location": "Hybrid",
-    "requiredSkill": "Web Development",
-    "employee": [
-      {
-        "name":"Champion"
-      }
-    ],
-    "availabilityType": "UNDESIRED"
+    "requiredSkill": "Web Development"
   },
   {
     "startTime": "2023-08-05 09:30",
     "endTime": "2023-08-05 14:30",
     "location": "Hybrid",
-    "requiredSkill": "BlockChainDevelopment",
-    "employee": [
-      {
-        "name":"Shaurya"
-      }
-    ],
-    "availabilityType": "DESIRED"
+    "requiredSkill": "BlockChainDevelopment"
   },
   {
     "startTime": "2024-07-11 08:30",
     "endTime": "2024-07-11 17:30",
     "location": "Hybrid",
-    "requiredSkill":"SDE" ,
-     "employee": [
-       {
-         "name": "Y"
-       }
-     ],
-    "availabilityType":"AVAILABLE"
+    "requiredSkill":"SDE"
   },
   {
     "startTime": "2024-07-11 13:30",
     "endTime": "2024-07-11 23:30",
     "location": "Hybrid",
-    "requiredSkill": "QA",
-    "employee": [{
-      "name": "A"
-    }],
-    "availabilityType": "UNAVAILABLE"
+    "requiredSkill": "QA"
+  },
+  {
+    "startTime": "2004-08-08 10:30",
+    "endTime": "2024-08-08 18:30",
+    "location": "Hybrid",
+    "requiredSkill":"OT"
   }
 
 ]

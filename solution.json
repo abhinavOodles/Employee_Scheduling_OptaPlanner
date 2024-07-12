@@ -1,7 +1,8 @@
 {
-  "problemId" : "de885df0-1429-4e14-96c0-0812eeac6e59",
+  "problemId" : "a0728609-162f-42b9-ad47-691c4d246eda",
   "solverStatus" : "NOT_SOLVING",
   "terminatedEarly" : false,
+  "solvingDuration" : 60.037000000,
   "finalBestSolution" : {
     "name" : null,
     "availabilities" : [ {
@@ -27,7 +28,11 @@
     }, {
       "startTime" : "2024-07-11 13:30",
       "endTime" : "2024-07-11 23:30",
-      "availabilityType" : "UNAVAILABLE"
+      "availabilityType" : "AVAILABLE"
+    }, {
+      "startTime" : "2024-08-08 10:30",
+      "endTime" : "2024-08-08 18:30",
+      "availabilityType" : null
     } ],
     "employees" : [ {
       "name" : "ABCD",
@@ -93,7 +98,18 @@
       "availability" : [ {
         "startTime" : "2024-07-11 13:30",
         "endTime" : "2024-07-11 23:30",
-        "availabilityType" : "UNAVAILABLE"
+        "availabilityType" : "AVAILABLE"
+      } ]
+    }, {
+      "name" : "Sa",
+      "skills" : [ {
+        "skillName" : "OT"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-08-08 10:30",
+        "endTime" : "2024-08-08 18:30",
+        "availabilityType" : null
       } ]
     } ],
     "shifts" : [ {
@@ -126,6 +142,11 @@
       "endTime" : [ 2024, 7, 11, 23, 30 ],
       "location" : "Hybrid",
       "requiredSkill" : "QA"
+    }, {
+      "startTime" : [ 2004, 8, 8, 10, 30 ],
+      "endTime" : [ 2024, 8, 8, 18, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "OT"
     } ],
     "skills" : [ {
       "skillName" : "java"
@@ -139,16 +160,17 @@
       "skillName" : "SDE"
     }, {
       "skillName" : "QA"
+    }, {
+      "skillName" : "OT"
     } ],
     "score" : {
       "initScore" : 0,
       "hardScore" : 0,
-      "softScore" : 0,
+      "softScore" : -9,
       "feasible" : true,
-      "zero" : true,
+      "zero" : false,
       "solutionInitialized" : true
     },
     "solverStatus" : null
-  },
-  "solvingDuration" : 5.025000000
+  }
 }

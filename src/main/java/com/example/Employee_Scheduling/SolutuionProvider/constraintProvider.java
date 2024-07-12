@@ -1,8 +1,6 @@
 package com.example.Employee_Scheduling.SolutuionProvider;
 
-import com.example.Employee_Scheduling.Domain.Availability;
 import com.example.Employee_Scheduling.Domain.AvailabilityType;
-import com.example.Employee_Scheduling.Domain.OptAvailability;
 import com.example.Employee_Scheduling.Domain.Shift;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.stream.Constraint;
@@ -10,6 +8,7 @@ import org.optaplanner.core.api.score.stream.ConstraintFactory;
 import org.optaplanner.core.api.score.stream.ConstraintProvider;
 import org.optaplanner.core.api.score.stream.Joiners;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 
@@ -18,12 +17,13 @@ public class constraintProvider implements ConstraintProvider {
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
                 requiredSkill(constraintFactory),
-//                unavailableEmployee(constraintFactory),
-//                assignEveryShift(constraintFactory),
-//                undesiredEmployeeTimeSlot(constraintFactory),
-//                breakShouldNotBeOverlapWithShift(constraintFactory),
-//                unavailableEmployeeTimeSlot(constraintFactory),
-//                absentEmployeeTimeSlot(constraintFactory),
+                unavailableEmployee(constraintFactory),
+                assignEveryShift(constraintFactory),
+                undesiredEmployeeTimeSlot(constraintFactory),
+                breakShouldNotBeOverlapWithShift(constraintFactory),
+                unavailableEmployeeTimeSlot(constraintFactory),
+                absentEmployeeTimeSlot(constraintFactory),
+                breakNotPlanned(constraintFactory)
 
         };
     }
@@ -69,11 +69,10 @@ public class constraintProvider implements ConstraintProvider {
         LocalDateTime secondEndingTime = shift2.getEndTime();
 
 
-        if ((firstStartingTime.isAfter(secondStartingTime)) && (firstEndingTime.isBefore(secondEndingTime))){
-            return true;
+            // Check if shift1 starts before shift2 ends and shift1 ends after shift2 starts
+            return firstStartingTime.isBefore(secondEndingTime) && firstEndingTime.isAfter(secondStartingTime);
         }
-        return false ;
-    }
+
 
     private Constraint requiredSkill(ConstraintFactory constraintFactory) {
         return constraintFactory
@@ -106,7 +105,7 @@ public class constraintProvider implements ConstraintProvider {
     private Constraint assignEveryShift(ConstraintFactory constraintFactory) {
         return constraintFactory
                 .forEach(Shift.class)
-                .filter(shift -> (shift.getEmployee() == null))
+                .filter(shift -> ((shift.getEmployee() == null) && !(shift.getRequiredSkill().equals(shift.getEmployee().getSkills()))))
                 .penalize(HardSoftScore.ONE_SOFT)
                 .asConstraint("Assign every shift");
     }
@@ -148,27 +147,41 @@ public class constraintProvider implements ConstraintProvider {
 
     private Constraint breakNotPlanned (ConstraintFactory constraintFactory){
         return constraintFactory
-                .forEach(Shift.class)
-                .filter(shift -> checkAvailability(shift))
+                .forEachUniquePair(Shift.class)
+                .filter((shift1 , shift2) -> checkBreakTimingWithShifts(shift1 , shift2 , 15))
                 .penalize(HardSoftScore.ONE_SOFT)
                 .asConstraint("Break is not planned") ;
     }
 
     private boolean checkAvailability(Shift shift) {
-        if (shift.getEmployee().getAvailability().equals(AvailabilityType.UNAVAILABLE)){
+        if (shift.getEmployee().getAvailability().equals(AvailabilityType.UNAVAILABLE) || (shift.getEmployee().getAvailability().equals(AvailabilityType.ABSENT))){
             return true ;
     }
-        else if (shift.getEmployee().getAvailability().equals(AvailabilityType.DESIRED)){
-            return true ;
-        }
-        else if (shift.getEmployee().getAvailability().equals(AvailabilityType.UNDESIRED)){
-            return true ;
-        }
-        else if (shift.getEmployee().getAvailability().equals(AvailabilityType.ABSENT)){
-            return true ;
-        }
-        else {
+    else {
             return false;
         }
+    }
+
+    private boolean checkBreakTimingWithShifts(Shift shift1 , Shift shift2 , int breakTiming){
+
+        LocalDateTime startTimeOfShift1 = shift1.getStartTime() ;
+        LocalDateTime endTimeOfShift1 = shift1.getEndTime() ;
+        LocalDateTime startTimeOfShift2 = shift2.getStartTime() ;
+        LocalDateTime endTimeOfShift2  = shift2.getEndTime() ;
+
+        long totalDurationOfShift1 = Duration.between(startTimeOfShift1 , endTimeOfShift1).toMinutes() ;
+        long totalDurationOfShift2 = Duration.between(startTimeOfShift2,endTimeOfShift2).toMinutes() ;
+        long differenceBetweenStartingAndEndingOfShifts = Duration.between(endTimeOfShift1 , startTimeOfShift2).toMinutes();
+
+//        long totalHoursInBetweenInComplianceOfShift1WithBreak  = totalDurationOfShift1 + breakTiming ;
+//        long differenceOfTimingInTwoShift  = totalDurationOfShift2 - totalDurationOfShift1 ;
+
+        if (differenceBetweenStartingAndEndingOfShifts < breakTiming){
+            return true ;
+        }
+        else{
+            return false ;
+        }
+
     }
 }

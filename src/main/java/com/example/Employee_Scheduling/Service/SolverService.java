@@ -10,7 +10,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.transaction.Transactional;
+import org.optaplanner.core.api.score.ScoreExplanation;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import org.optaplanner.core.api.score.constraint.ConstraintMatch;
+import org.optaplanner.core.api.score.constraint.Indictment;
 import org.optaplanner.core.api.solver.SolutionManager;
 import org.optaplanner.core.api.solver.SolverFactory;
 import org.optaplanner.core.api.solver.SolverJob;
@@ -55,12 +58,12 @@ public class SolverService {
     }
 
     public List<Shift> solver () throws IOException {
-        EmployeeScheduling employeeScheduling = new EmployeeScheduling() ;
+        EmployeeScheduling employeeScheduling = new EmployeeScheduling();
 
-        List<Employee> employees = employeeRepository.findAll() ;
+        List<Employee> employees = employeeRepository.findAll();
         List<Availability> availabilities = availabilityRepository.findAll();
 
-       // Map<Employee,List<Availability>> map = availabilities.stream().collect(Collectors.groupingBy(Availability::getEmployee));
+        // Map<Employee,List<Availability>> map = availabilities.stream().collect(Collectors.groupingBy(Availability::getEmployee));
 //        for(Employee employee : employees){
 //            if(Objects.nonNull(map.get(employee))){
 //                List<OptAvailability> optAvailabilities = new ArrayList<>();
@@ -76,9 +79,8 @@ public class SolverService {
 //            }
 //        }
 
-        List<Shift> shifts = shiftRepository.findAll() ;
-        List<Skill> skills = skillRepository.findAll() ;
-
+        List<Shift> shifts = shiftRepository.findAll();
+        List<Skill> skills = skillRepository.findAll();
 
 
         employeeScheduling.setEmployees(employees);
@@ -91,18 +93,6 @@ public class SolverService {
 
         SolverJob<EmployeeScheduling, String> solverJob = solverManager.solve(jobId, employeeScheduling);
 
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-
-        // Convert solution to JSON string
-        String json = objectMapper.writeValueAsString(solverJob);
-
-        // Print or save the JSON string
-        System.out.println(json);
-
-        // Optionally, save JSON to a file
-        objectMapper.writeValue(new File("solution.json"), solverJob);
-
 
         EmployeeScheduling solution;
         try {
@@ -114,6 +104,34 @@ public class SolverService {
             throw new RuntimeException(e);
         }
 
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        // Convert solution to JSON string
+        String json = objectMapper.writeValueAsString(solverJob);
+
+        // Print or save the JSON string
+        System.out.println(json);
+
+        // Optionally, save JSON to a file
+        objectMapper.writeValue(new File("solution.json"), solverJob);
+        ScoreExplanation<EmployeeScheduling, HardSoftScore> scoreExplanation = solutionManager.explain(solution);
+        Map<Object, Indictment<HardSoftScore>> indictmentMap = scoreExplanation.getIndictmentMap();
+
+        for (Shift process : solution.getShifts()) {
+            Indictment<HardSoftScore> indictment = indictmentMap.get(process);
+            if (indictment == null) {
+                continue;
+            }
+            // The score impact of that planning entity
+            HardSoftScore totalScore = indictment.getScore();
+
+            for (ConstraintMatch<HardSoftScore> constraintMatch : indictment.getConstraintMatchSet()) {
+                String constraintName = constraintMatch.getConstraintName();
+                HardSoftScore score = constraintMatch.getScore();
+                log.info("CourseId::::::::::{},Constraint name ::::::{},:::::::socre{}", process.getId(), constraintName, score);
+            }
+        }
         return solution.getShifts() ;
     }
 

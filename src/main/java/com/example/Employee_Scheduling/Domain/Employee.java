@@ -20,6 +20,7 @@ import java.util.Set;
 @Data
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Employee  {
 
     @Id
