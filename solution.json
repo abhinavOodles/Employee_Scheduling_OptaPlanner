@@ -1,7 +1,8 @@
 {
-  "problemId" : "97c14667-c5cc-4798-a84d-f3220ed814e2",
+  "problemId" : "c611f902-1442-43dc-9de2-deff0628cc5a",
   "solverStatus" : "NOT_SOLVING",
   "terminatedEarly" : false,
+  "solvingDuration" : 60.303000000,
   "finalBestSolution" : {
     "name" : null,
     "availabilities" : [ {
@@ -411,6 +412,28 @@
         "availability" : [ ]
       },
       "date" : [ 2023, 7, 15 ]
+    }, {
+      "startTime" : "2024-07-16 10:30",
+      "endTime" : "2024-07-16 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "Amit",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 16 ]
+    }, {
+      "startTime" : "2024-07-16 10:30",
+      "endTime" : "2024-07-16 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "SDE2",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 16 ]
     } ],
     "employees" : [ {
       "name" : "ABCD",
@@ -1261,6 +1284,52 @@
       "skills" : [ ],
       "shifts" : [ ],
       "availability" : [ ]
+    }, {
+      "name" : "Amit",
+      "skills" : [ {
+        "skillName" : "OPTA-PLANNER"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-16 10:30",
+        "endTime" : "2024-07-16 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "Amit",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 16 ]
+      } ]
+    }, {
+      "name" : "Amit",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Mishra",
+      "skills" : [ {
+        "skillName" : "SDE2"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-16 10:30",
+        "endTime" : "2024-07-16 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "SDE2",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 16 ]
+      } ]
+    }, {
+      "name" : "SDE2",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     } ],
     "shifts" : [ {
       "startTime" : [ 2023, 7, 5, 10, 30 ],
@@ -1463,6 +1532,30 @@
         "shifts" : [ ],
         "availability" : [ ]
       }
+    }, {
+      "startTime" : [ 2024, 8, 14, 1, 30 ],
+      "endTime" : [ 2024, 8, 14, 21, 30 ],
+      "location" : "NCR",
+      "requiredSkill" : "SDE",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
     } ],
     "skills" : [ {
       "skillName" : "java"
@@ -1536,16 +1629,19 @@
       "skillName" : "Java"
     }, {
       "skillName" : "Java"
+    }, {
+      "skillName" : "OPTA-PLANNER"
+    }, {
+      "skillName" : "SDE2"
     } ],
     "score" : {
       "initScore" : 0,
       "hardScore" : 0,
-      "softScore" : -2716,
+      "softScore" : -3018,
       "feasible" : true,
       "zero" : false,
       "solutionInitialized" : true
     },
     "solverStatus" : null
-  },
-  "solvingDuration" : 60.132000000
+  }
 }

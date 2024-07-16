@@ -5,10 +5,7 @@ import com.example.Employee_Scheduling.Domain.AvailabilityType;
 import com.example.Employee_Scheduling.Domain.Employee;
 import com.example.Employee_Scheduling.Domain.Shift;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
-import org.optaplanner.core.api.score.stream.Constraint;
-import org.optaplanner.core.api.score.stream.ConstraintFactory;
-import org.optaplanner.core.api.score.stream.ConstraintProvider;
-import org.optaplanner.core.api.score.stream.Joiners;
+import org.optaplanner.core.api.score.stream.*;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -32,7 +29,8 @@ public class constraintProvider implements ConstraintProvider {
                 breakNotPlanned(constraintFactory),
                 oneShiftPerDay(constraintFactory),
                // assignEveryEmployeeToShift(constraintFactory),
-                uniqueShiftAssignmentConstraint(constraintFactory)
+                uniqueShiftAssignmentConstraint(constraintFactory),
+                noShiftAllocationPenalty(constraintFactory)
 
         };
     }
@@ -82,7 +80,7 @@ public class constraintProvider implements ConstraintProvider {
             return firstStartingTime.isBefore(secondEndingTime) && firstEndingTime.isAfter(secondStartingTime);
         }
 
-
+    //before assigning any shift check it for required skill
     private Constraint requiredSkill(ConstraintFactory constraintFactory) {
         return constraintFactory
                 .forEach(Shift.class)
@@ -91,7 +89,7 @@ public class constraintProvider implements ConstraintProvider {
                 .asConstraint("Missing required skill");
     }
 
-
+   //check it for  availability of employee for the shifts
     private Constraint unavailableEmployee(ConstraintFactory constraintFactory) {
         return constraintFactory
                 .forEach(Shift.class)
@@ -114,7 +112,7 @@ public class constraintProvider implements ConstraintProvider {
         }
     }
 
-
+   // assigning every shift  to  according to their skills
     private Constraint assignEveryShift(ConstraintFactory constraintFactory) {
         return constraintFactory
                 .forEach(Shift.class)
@@ -219,5 +217,14 @@ public class constraintProvider implements ConstraintProvider {
         return e1.getShifts().equals(e2.getShifts()) && !e1.equals(e2) ;
     }
 
-
+    private Constraint noShiftAllocationPenalty(ConstraintFactory constraintFactory) {
+        //if any shift is left without assigning to any employee then this constraint is applied
+        return constraintFactory
+                .forEach(Shift.class)
+                .groupBy(Shift::getEmployee,
+                        ConstraintCollectors.count())
+                .filter((employee, shiftCount) -> shiftCount == 0) // Filter employees with no shifts
+                .penalize( HardSoftScore.ONE_SOFT)
+                .asConstraint("No shift allocation penalty");
+    }
 }

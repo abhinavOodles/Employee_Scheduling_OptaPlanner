@@ -568,8 +568,38 @@
         "availabilityType": "AVAILABLE"
       }
     ]
-
-
+  },
+  {
+    "name": "Amit",
+    "skills": [
+      {
+        "skillName": "OPTA-PLANNER"
+      }
+    ],
+    "availability": [
+      {
+        "startTime": "2024-07-16 10:30",
+        "endTime":"2024-07-16 18:30" ,
+        "employee": "Amit",
+        "availabilityType":"DESIRED"
+      }
+    ]
+  },
+  {
+    "name":"Mishra",
+     "skills": [
+       {
+         "skillName": "ASSOCIATE CONSULTANT"
+       }
+     ],
+    "availability": [
+      {
+        "startTime": "2024-07-16 10:30",
+        "endTime": "2024-07-16 18:30",
+        "employee": "ASSOCIATE CONSULTANT",
+        "availabilityType": "DESIRED"
+      }
+    ]
   }
 ]
 
