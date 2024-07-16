@@ -10,6 +10,7 @@ import lombok.*;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -36,7 +37,6 @@ public class Availability {
     private AvailabilityType availabilityType;
 
     @ManyToOne(cascade =CascadeType.ALL)
-    @JsonIgnore
     private Employee employee ;
 
 
@@ -48,6 +48,7 @@ public class Availability {
         this.employee = employee;
     }
 
-
-
+    public LocalDate getDate() {
+        return startTime.toLocalDate();
+    }
 }

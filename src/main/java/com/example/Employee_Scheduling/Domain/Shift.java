@@ -37,7 +37,6 @@ public class Shift {
 
     @PlanningVariable
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
     private Employee employee ;
 
 

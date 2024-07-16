@@ -4,6 +4,7 @@ import com.example.Employee_Scheduling.DateTimeDeserializer;
 import com.example.Employee_Scheduling.Domain.AvailabilityType;
 import com.example.Employee_Scheduling.Domain.Employee;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.EnumType;
@@ -30,6 +31,7 @@ public class AvailabilityDTO {
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType ;
 
+    @JsonIgnore
     private Employee employee ;
 
 

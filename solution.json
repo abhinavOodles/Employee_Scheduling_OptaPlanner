@@ -1,38 +1,416 @@
 {
-  "problemId" : "a0728609-162f-42b9-ad47-691c4d246eda",
+  "problemId" : "97c14667-c5cc-4798-a84d-f3220ed814e2",
   "solverStatus" : "NOT_SOLVING",
   "terminatedEarly" : false,
-  "solvingDuration" : 60.037000000,
   "finalBestSolution" : {
     "name" : null,
     "availabilities" : [ {
       "startTime" : "2023-07-05 10:30",
       "endTime" : "2023-07-05 18:30",
-      "availabilityType" : "AVAILABLE"
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
     }, {
       "startTime" : "2023-08-05 09:30",
       "endTime" : "2023-08-05 17:30",
-      "availabilityType" : "UNAVAILABLE"
+      "availabilityType" : "UNAVAILABLE",
+      "employee" : {
+        "name" : "Chandu",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 8, 5 ]
     }, {
       "startTime" : "2023-07-06 11:30",
       "endTime" : "2023-07-06 20:30",
-      "availabilityType" : "UNDESIRED"
+      "availabilityType" : "UNDESIRED",
+      "employee" : {
+        "name" : "CHAMPION",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 6 ]
     }, {
       "startTime" : "2024-07-09 09:30",
       "endTime" : "2024-07-09 18:30",
-      "availabilityType" : "DESIRED"
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "Shaurya",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 9 ]
     }, {
       "startTime" : "2024-07-11 08:30",
       "endTime" : "2024-07-11 17:30",
-      "availabilityType" : "AVAILABLE"
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Z",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 11 ]
     }, {
       "startTime" : "2024-07-11 13:30",
       "endTime" : "2024-07-11 23:30",
-      "availabilityType" : "AVAILABLE"
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "A",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 11 ]
     }, {
       "startTime" : "2024-08-08 10:30",
       "endTime" : "2024-08-08 18:30",
-      "availabilityType" : null
+      "availabilityType" : "UNDESIRED",
+      "employee" : {
+        "name" : "Sa",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 8, 8 ]
+    }, {
+      "startTime" : "2024-07-13 09:30",
+      "endTime" : "2024-07-13 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Gachin",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 13 ]
+    }, {
+      "startTime" : "2024-07-13 09:30",
+      "endTime" : "2024-07-13 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Joshi",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 13 ]
+    }, {
+      "startTime" : "2024-07-13 11:30",
+      "endTime" : "2024-07-13 17:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Jiya Shankar",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 13 ]
+    }, {
+      "startTime" : "2024-09-07 09:30",
+      "endTime" : "2024-10-08 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "Abhishek",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 9, 7 ]
+    }, {
+      "startTime" : "2024-09-07 19:30",
+      "endTime" : "2024-10-08 08:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Nayar",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 9, 7 ]
+    }, {
+      "startTime" : "2024-09-07 10:30",
+      "endTime" : "2024-10-08 11:30",
+      "availabilityType" : "UNAVAILABLE",
+      "employee" : {
+        "name" : "Anuj",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 9, 7 ]
+    }, {
+      "startTime" : "2024-09-07 09:30",
+      "endTime" : "2024-10-08 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "Rawat",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 9, 7 ]
+    }, {
+      "startTime" : "2024-07-07 09:30",
+      "endTime" : "2024-07-07 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "PJ",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 7 ]
+    }, {
+      "startTime" : "2024-07-07 09:30",
+      "endTime" : "2024-07-07 18:30",
+      "availabilityType" : "ABSENT",
+      "employee" : {
+        "name" : "C",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 7 ]
+    }, {
+      "startTime" : "2024-07-07 12:30",
+      "endTime" : "2024-07-07 20:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "C",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 7 ]
+    }, {
+      "startTime" : "2024-06-15 10:30",
+      "endTime" : "2024-06-15 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "bade",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 6, 15 ]
+    }, {
+      "startTime" : "2024-07-15 18:30",
+      "endTime" : "2024-07-15 14:30",
+      "availabilityType" : "UNAVAILABLE",
+      "employee" : {
+        "name" : "chote",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 15 ]
+    }, {
+      "startTime" : "2024-07-14 12:30",
+      "endTime" : "2024-07-14 20:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Maurya",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 14 ]
+    }, {
+      "startTime" : "2024-07-06 10:30",
+      "endTime" : "2024-07-06 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "shab",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 6 ]
+    }, {
+      "startTime" : "2024-07-06 10:30",
+      "endTime" : "2024-07-06 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "AK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 6 ]
+    }, {
+      "startTime" : "2024-07-06 10:30",
+      "endTime" : "2024-07-06 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "VK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 6 ]
+    }, {
+      "startTime" : "2024-07-06 10:30",
+      "endTime" : "2024-07-06 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "shab",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 6 ]
+    }, {
+      "startTime" : "2024-07-06 10:30",
+      "endTime" : "2024-07-06 18:30",
+      "availabilityType" : "UNAVAILABLE",
+      "employee" : {
+        "name" : "CK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2024, 7, 6 ]
+    }, {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "DK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
+    }, {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "UNDESIRED",
+      "employee" : {
+        "name" : "PK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
+    }, {
+      "startTime" : "2023-07-15 01:30",
+      "endTime" : "2023-07-15 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "RO",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 15 ]
+    }, {
+      "startTime" : "2023-07-15 18:30",
+      "endTime" : "2023-07-15 02:30",
+      "availabilityType" : "UNDESIRED",
+      "employee" : {
+        "name" : "DK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 15 ]
+    }, {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "UNAVAILABLE",
+      "employee" : {
+        "name" : "Shish",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
+    }, {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "X",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
+    }, {
+      "startTime" : "2023-07-15 10:30",
+      "endTime" : "2023-07-15 18:30",
+      "availabilityType" : "DESIRED",
+      "employee" : {
+        "name" : "Virat",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 15 ]
+    }, {
+      "startTime" : "2023-08-15 14:30",
+      "endTime" : "2023-08-15 10:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "Fc",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 8, 15 ]
+    }, {
+      "startTime" : "2023-07-08 15:30",
+      "endTime" : "2023-07-08 23:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "RRR",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 8 ]
+    }, {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "DK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
+    }, {
+      "startTime" : "2023-07-05 10:30",
+      "endTime" : "2023-07-05 18:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "DK",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 5 ]
+    }, {
+      "startTime" : "2023-07-15 11:30",
+      "endTime" : "2023-07-15 19:30",
+      "availabilityType" : "AVAILABLE",
+      "employee" : {
+        "name" : "AR",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      },
+      "date" : [ 2023, 7, 15 ]
     } ],
     "employees" : [ {
       "name" : "ABCD",
@@ -43,8 +421,20 @@
       "availability" : [ {
         "startTime" : "2023-07-05 10:30",
         "endTime" : "2023-07-05 18:30",
-        "availabilityType" : "AVAILABLE"
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "ABCD",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
       } ]
+    }, {
+      "name" : "ABCD",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     }, {
       "name" : "Chandu",
       "skills" : [ {
@@ -54,8 +444,20 @@
       "availability" : [ {
         "startTime" : "2023-08-05 09:30",
         "endTime" : "2023-08-05 17:30",
-        "availabilityType" : "UNAVAILABLE"
+        "availabilityType" : "UNAVAILABLE",
+        "employee" : {
+          "name" : "Chandu",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 8, 5 ]
       } ]
+    }, {
+      "name" : "Chandu",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     }, {
       "name" : "CHAMPION",
       "skills" : [ {
@@ -65,8 +467,20 @@
       "availability" : [ {
         "startTime" : "2023-07-06 11:30",
         "endTime" : "2023-07-06 20:30",
-        "availabilityType" : "UNDESIRED"
+        "availabilityType" : "UNDESIRED",
+        "employee" : {
+          "name" : "CHAMPION",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 6 ]
       } ]
+    }, {
+      "name" : "CHAMPION",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     }, {
       "name" : "Shaurya",
       "skills" : [ {
@@ -76,8 +490,20 @@
       "availability" : [ {
         "startTime" : "2024-07-09 09:30",
         "endTime" : "2024-07-09 18:30",
-        "availabilityType" : "DESIRED"
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "Shaurya",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 9 ]
       } ]
+    }, {
+      "name" : "Shaurya",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     }, {
       "name" : "Z",
       "skills" : [ {
@@ -87,8 +513,20 @@
       "availability" : [ {
         "startTime" : "2024-07-11 08:30",
         "endTime" : "2024-07-11 17:30",
-        "availabilityType" : "AVAILABLE"
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Z",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 11 ]
       } ]
+    }, {
+      "name" : "Z",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     }, {
       "name" : "A",
       "skills" : [ {
@@ -98,8 +536,20 @@
       "availability" : [ {
         "startTime" : "2024-07-11 13:30",
         "endTime" : "2024-07-11 23:30",
-        "availabilityType" : "AVAILABLE"
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "A",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 11 ]
       } ]
+    }, {
+      "name" : "A",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     }, {
       "name" : "Sa",
       "skills" : [ {
@@ -109,44 +559,910 @@
       "availability" : [ {
         "startTime" : "2024-08-08 10:30",
         "endTime" : "2024-08-08 18:30",
-        "availabilityType" : null
+        "availabilityType" : "UNDESIRED",
+        "employee" : {
+          "name" : "Sa",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 8, 8 ]
       } ]
+    }, {
+      "name" : "Sa",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Sachin",
+      "skills" : [ {
+        "skillName" : "Gadri"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-13 09:30",
+        "endTime" : "2024-07-13 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Gachin",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 13 ]
+      } ]
+    }, {
+      "name" : "Gachin",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Joshi",
+      "skills" : [ {
+        "skillName" : "Technical Communication"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-13 09:30",
+        "endTime" : "2024-07-13 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Joshi",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 13 ]
+      } ]
+    }, {
+      "name" : "Joshi",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Jiya Shankar",
+      "skills" : [ {
+        "skillName" : "Game Development"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-13 11:30",
+        "endTime" : "2024-07-13 17:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Jiya Shankar",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 13 ]
+      } ]
+    }, {
+      "name" : "Jiya Shankar",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Abhishek",
+      "skills" : [ {
+        "skillName" : "JSP Servlet"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-09-07 09:30",
+        "endTime" : "2024-10-08 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "Abhishek",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 9, 7 ]
+      } ]
+    }, {
+      "name" : "Abhishek",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Nayar",
+      "skills" : [ {
+        "skillName" : "Spring Boot"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-09-07 19:30",
+        "endTime" : "2024-10-08 08:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Nayar",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 9, 7 ]
+      } ]
+    }, {
+      "name" : "Nayar",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Anuj",
+      "skills" : [ {
+        "skillName" : "Spring Security"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-09-07 10:30",
+        "endTime" : "2024-10-08 11:30",
+        "availabilityType" : "UNAVAILABLE",
+        "employee" : {
+          "name" : "Anuj",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 9, 7 ]
+      } ]
+    }, {
+      "name" : "Anuj",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Rawat",
+      "skills" : [ {
+        "skillName" : "Hibernate and Jpa"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-09-07 09:30",
+        "endTime" : "2024-10-08 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "Rawat",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 9, 7 ]
+      } ]
+    }, {
+      "name" : "Rawat",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "PJ",
+      "skills" : [ {
+        "skillName" : "HR"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-07 09:30",
+        "endTime" : "2024-07-07 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "PJ",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 7 ]
+      } ]
+    }, {
+      "name" : "PJ",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "P",
+      "skills" : [ {
+        "skillName" : "C"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-07 09:30",
+        "endTime" : "2024-07-07 18:30",
+        "availabilityType" : "ABSENT",
+        "employee" : {
+          "name" : "C",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 7 ]
+      } ]
+    }, {
+      "name" : "C",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Su",
+      "skills" : [ {
+        "skillName" : "C++"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-07 12:30",
+        "endTime" : "2024-07-07 20:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "C",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 7 ]
+      } ]
+    }, {
+      "name" : "C",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "bade",
+      "skills" : [ {
+        "skillName" : "HR"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-06-15 10:30",
+        "endTime" : "2024-06-15 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "bade",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 6, 15 ]
+      } ]
+    }, {
+      "name" : "bade",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "chote",
+      "skills" : [ {
+        "skillName" : "Operation Team"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-15 18:30",
+        "endTime" : "2024-07-15 14:30",
+        "availabilityType" : "UNAVAILABLE",
+        "employee" : {
+          "name" : "chote",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 15 ]
+      } ]
+    }, {
+      "name" : "chote",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Maurya",
+      "skills" : [ {
+        "skillName" : "Devops"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-14 12:30",
+        "endTime" : "2024-07-14 20:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Maurya",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 14 ]
+      } ]
+    }, {
+      "name" : "Maurya",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "shab",
+      "skills" : [ {
+        "skillName" : "SDE"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-06 10:30",
+        "endTime" : "2024-07-06 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "shab",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 6 ]
+      } ]
+    }, {
+      "name" : "shab",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "AK",
+      "skills" : [ {
+        "skillName" : "SDE1"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-06 10:30",
+        "endTime" : "2024-07-06 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "AK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 6 ]
+      } ]
+    }, {
+      "name" : "AK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "VK",
+      "skills" : [ {
+        "skillName" : "SDE2"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-06 10:30",
+        "endTime" : "2024-07-06 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "VK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 6 ]
+      } ]
+    }, {
+      "name" : "VK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "shab",
+      "skills" : [ {
+        "skillName" : "SDE"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-06 10:30",
+        "endTime" : "2024-07-06 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "shab",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 6 ]
+      } ]
+    }, {
+      "name" : "shab",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "CK",
+      "skills" : [ {
+        "skillName" : "SDE3"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2024-07-06 10:30",
+        "endTime" : "2024-07-06 18:30",
+        "availabilityType" : "UNAVAILABLE",
+        "employee" : {
+          "name" : "CK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2024, 7, 6 ]
+      } ]
+    }, {
+      "name" : "CK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "DK",
+      "skills" : [ {
+        "skillName" : "Java"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "DK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
+      } ]
+    }, {
+      "name" : "DK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "PK",
+      "skills" : [ {
+        "skillName" : "C++"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "UNDESIRED",
+        "employee" : {
+          "name" : "PK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
+      } ]
+    }, {
+      "name" : "PK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "RO",
+      "skills" : [ {
+        "skillName" : "Web Development"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-15 01:30",
+        "endTime" : "2023-07-15 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "RO",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 15 ]
+      } ]
+    }, {
+      "name" : "RO",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "PANT",
+      "skills" : [ {
+        "skillName" : "BlockChainDevelopment"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-15 18:30",
+        "endTime" : "2023-07-15 02:30",
+        "availabilityType" : "UNDESIRED",
+        "employee" : {
+          "name" : "DK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 15 ]
+      } ]
+    }, {
+      "name" : "DK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Shish",
+      "skills" : [ {
+        "skillName" : "NA"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "UNAVAILABLE",
+        "employee" : {
+          "name" : "Shish",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
+      } ]
+    }, {
+      "name" : "Shish",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "X",
+      "skills" : [ {
+        "skillName" : "Java"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "X",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
+      } ]
+    }, {
+      "name" : "X",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Virat",
+      "skills" : [ {
+        "skillName" : "Web Development"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-15 10:30",
+        "endTime" : "2023-07-15 18:30",
+        "availabilityType" : "DESIRED",
+        "employee" : {
+          "name" : "Virat",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 15 ]
+      } ]
+    }, {
+      "name" : "Virat",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "Fc",
+      "skills" : [ {
+        "skillName" : "Backend Development"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-08-15 14:30",
+        "endTime" : "2023-08-15 10:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "Fc",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 8, 15 ]
+      } ]
+    }, {
+      "name" : "Fc",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "RRR",
+      "skills" : [ {
+        "skillName" : "React"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-08 15:30",
+        "endTime" : "2023-07-08 23:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "RRR",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 8 ]
+      } ]
+    }, {
+      "name" : "RRR",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "DK",
+      "skills" : [ {
+        "skillName" : "Java"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "DK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
+      } ]
+    }, {
+      "name" : "DK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "DK",
+      "skills" : [ {
+        "skillName" : "Java"
+      } ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-05 10:30",
+        "endTime" : "2023-07-05 18:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "DK",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 5 ]
+      } ]
+    }, {
+      "name" : "DK",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
+    }, {
+      "name" : "AR",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ {
+        "startTime" : "2023-07-15 11:30",
+        "endTime" : "2023-07-15 19:30",
+        "availabilityType" : "AVAILABLE",
+        "employee" : {
+          "name" : "AR",
+          "skills" : [ ],
+          "shifts" : [ ],
+          "availability" : [ ]
+        },
+        "date" : [ 2023, 7, 15 ]
+      } ]
+    }, {
+      "name" : "AR",
+      "skills" : [ ],
+      "shifts" : [ ],
+      "availability" : [ ]
     } ],
     "shifts" : [ {
       "startTime" : [ 2023, 7, 5, 10, 30 ],
       "endTime" : [ 2023, 7, 5, 18, 30 ],
       "location" : "Online",
-      "requiredSkill" : "Java"
+      "requiredSkill" : "Java",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
     }, {
       "startTime" : [ 2023, 8, 5, 9, 30 ],
       "endTime" : [ 2023, 8, 5, 17, 30 ],
       "location" : "Hybrid",
-      "requiredSkill" : "C++"
+      "requiredSkill" : "C++",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
     }, {
       "startTime" : [ 2023, 7, 6, 11, 30 ],
       "endTime" : [ 2023, 7, 6, 20, 30 ],
       "location" : "Hybrid",
-      "requiredSkill" : "Web Development"
+      "requiredSkill" : "Web Development",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
     }, {
       "startTime" : [ 2023, 8, 5, 9, 30 ],
       "endTime" : [ 2023, 8, 5, 14, 30 ],
       "location" : "Hybrid",
-      "requiredSkill" : "BlockChainDevelopment"
+      "requiredSkill" : "BlockChainDevelopment",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      }
     }, {
       "startTime" : [ 2024, 7, 11, 8, 30 ],
       "endTime" : [ 2024, 7, 11, 17, 30 ],
       "location" : "Hybrid",
-      "requiredSkill" : "SDE"
+      "requiredSkill" : "SDE",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
     }, {
       "startTime" : [ 2024, 7, 11, 13, 30 ],
       "endTime" : [ 2024, 7, 11, 23, 30 ],
       "location" : "Hybrid",
-      "requiredSkill" : "QA"
+      "requiredSkill" : "QA",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      }
     }, {
       "startTime" : [ 2004, 8, 8, 10, 30 ],
       "endTime" : [ 2024, 8, 8, 18, 30 ],
       "location" : "Hybrid",
-      "requiredSkill" : "OT"
+      "requiredSkill" : "OT",
+      "employee" : {
+        "name" : "Chandu",
+        "skills" : [ {
+          "skillName" : "C++"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-08-05 09:30",
+          "endTime" : "2023-08-05 17:30",
+          "availabilityType" : "UNAVAILABLE",
+          "employee" : {
+            "name" : "Chandu",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 8, 5 ]
+        } ]
+      }
+    }, {
+      "startTime" : [ 2024, 8, 8, 10, 30 ],
+      "endTime" : [ 2024, 8, 8, 18, 30 ],
+      "location" : "Gurgaon",
+      "requiredSkill" : "OT",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
+    }, {
+      "startTime" : [ 2024, 7, 13, 9, 30 ],
+      "endTime" : [ 2024, 7, 13, 18, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "Gadari",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ {
+          "skillName" : "java"
+        } ],
+        "shifts" : [ ],
+        "availability" : [ {
+          "startTime" : "2023-07-05 10:30",
+          "endTime" : "2023-07-05 18:30",
+          "availabilityType" : "AVAILABLE",
+          "employee" : {
+            "name" : "ABCD",
+            "skills" : [ ],
+            "shifts" : [ ],
+            "availability" : [ ]
+          },
+          "date" : [ 2023, 7, 5 ]
+        } ]
+      }
+    }, {
+      "startTime" : [ 2024, 7, 13, 9, 30 ],
+      "endTime" : [ 2024, 7, 13, 18, 30 ],
+      "location" : "Hybrid",
+      "requiredSkill" : "Technical Communication",
+      "employee" : {
+        "name" : "ABCD",
+        "skills" : [ ],
+        "shifts" : [ ],
+        "availability" : [ ]
+      }
     } ],
     "skills" : [ {
       "skillName" : "java"
@@ -162,15 +1478,74 @@
       "skillName" : "QA"
     }, {
       "skillName" : "OT"
+    }, {
+      "skillName" : "Gadri"
+    }, {
+      "skillName" : "Technical Communication"
+    }, {
+      "skillName" : "Game Development"
+    }, {
+      "skillName" : "JSP Servlet"
+    }, {
+      "skillName" : "Spring Boot"
+    }, {
+      "skillName" : "Spring Security"
+    }, {
+      "skillName" : "Hibernate and Jpa"
+    }, {
+      "skillName" : "HR"
+    }, {
+      "skillName" : "C"
+    }, {
+      "skillName" : "C++"
+    }, {
+      "skillName" : "HR"
+    }, {
+      "skillName" : "Operation Team"
+    }, {
+      "skillName" : "Devops"
+    }, {
+      "skillName" : "SDE"
+    }, {
+      "skillName" : "SDE1"
+    }, {
+      "skillName" : "SDE2"
+    }, {
+      "skillName" : "SDE"
+    }, {
+      "skillName" : "SDE3"
+    }, {
+      "skillName" : "Java"
+    }, {
+      "skillName" : "C++"
+    }, {
+      "skillName" : "Web Development"
+    }, {
+      "skillName" : "BlockChainDevelopment"
+    }, {
+      "skillName" : "NA"
+    }, {
+      "skillName" : "Java"
+    }, {
+      "skillName" : "Web Development"
+    }, {
+      "skillName" : "Backend Development"
+    }, {
+      "skillName" : "React"
+    }, {
+      "skillName" : "Java"
+    }, {
+      "skillName" : "Java"
     } ],
     "score" : {
       "initScore" : 0,
       "hardScore" : 0,
-      "softScore" : -9,
+      "softScore" : -2716,
       "feasible" : true,
       "zero" : false,
       "solutionInitialized" : true
     },
     "solverStatus" : null
-  }
+  },
+  "solvingDuration" : 60.132000000
 }

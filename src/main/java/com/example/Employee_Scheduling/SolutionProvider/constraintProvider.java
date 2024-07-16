@@ -1,6 +1,8 @@
-package com.example.Employee_Scheduling.SolutuionProvider;
+package com.example.Employee_Scheduling.SolutionProvider;
 
+import com.example.Employee_Scheduling.Domain.Availability;
 import com.example.Employee_Scheduling.Domain.AvailabilityType;
+import com.example.Employee_Scheduling.Domain.Employee;
 import com.example.Employee_Scheduling.Domain.Shift;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.stream.Constraint;
@@ -9,10 +11,14 @@ import org.optaplanner.core.api.score.stream.ConstraintProvider;
 import org.optaplanner.core.api.score.stream.Joiners;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import static java.util.Locale.filter;
 
 
 public class constraintProvider implements ConstraintProvider {
+
     @Override
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
@@ -23,7 +29,10 @@ public class constraintProvider implements ConstraintProvider {
                 breakShouldNotBeOverlapWithShift(constraintFactory),
                 unavailableEmployeeTimeSlot(constraintFactory),
                 absentEmployeeTimeSlot(constraintFactory),
-                breakNotPlanned(constraintFactory)
+                breakNotPlanned(constraintFactory),
+                oneShiftPerDay(constraintFactory),
+               // assignEveryEmployeeToShift(constraintFactory),
+                uniqueShiftAssignmentConstraint(constraintFactory)
 
         };
     }
@@ -84,15 +93,19 @@ public class constraintProvider implements ConstraintProvider {
 
 
     private Constraint unavailableEmployee(ConstraintFactory constraintFactory) {
-
         return constraintFactory
                 .forEach(Shift.class)
-                .filter(shift -> getPenaltyForEmployeeAvailability(shift, AvailabilityType.UNAVAILABLE.name()))
+                .join(Availability.class,
+                        Joiners.equal((Shift shift) -> shift.getStartTime().toLocalDate(), Availability::getDate),
+                        Joiners.equal(Shift::getEmployee, Availability::getEmployee))
+                .filter((shift, availability) -> getPenaltyForEmployeeAvailability(shift, AvailabilityType.UNAVAILABLE.name()))
                 .penalize(HardSoftScore.ONE_HARD)
                 .asConstraint("Unavailable Employee");
     }
 
     private boolean getPenaltyForEmployeeAvailability(Shift shift, String name) {
+
+
         if (shift.getEmployee().getAvailability().equals(name)){
             return true  ;
         }
@@ -106,7 +119,7 @@ public class constraintProvider implements ConstraintProvider {
         return constraintFactory
                 .forEach(Shift.class)
                 .filter(shift -> ((shift.getEmployee() == null) && !(shift.getRequiredSkill().equals(shift.getEmployee().getSkills()))))
-                .penalize(HardSoftScore.ONE_SOFT)
+                .penalize(HardSoftScore.ONE_HARD)
                 .asConstraint("Assign every shift");
     }
 
@@ -114,7 +127,7 @@ public class constraintProvider implements ConstraintProvider {
         return constraintFactory
                 .forEach(Shift.class)
                 .filter(shift ->  checkAvailabilityType(shift,AvailabilityType.DESIRED))
-                .penalize(HardSoftScore.ONE_HARD)
+                .penalize(HardSoftScore.ONE_SOFT)
                 .asConstraint("Undesired TimeSlot for the employee") ;
     }
 
@@ -184,4 +197,27 @@ public class constraintProvider implements ConstraintProvider {
         }
 
     }
+
+    Constraint oneShiftPerDay(ConstraintFactory constraintFactory) {
+        return constraintFactory
+                .forEachUniquePair(Shift.class, Joiners.equal(Shift::getEmployee),
+                        Joiners.equal(shift -> shift.getStartTime().toLocalDate()))
+                .penalize(HardSoftScore.ONE_HARD)
+                .asConstraint("Max one shift per day");
+    }
+
+
+    private Constraint uniqueShiftAssignmentConstraint(ConstraintFactory constraintFactory) {
+        // Penalize when multiple employees are assigned to the same shift
+        return constraintFactory
+                .forEachUniquePair(Employee.class)
+                .filter(((employee, employee2) -> checkShifts(employee , employee2)))
+                .penalize( HardSoftScore.ONE_SOFT).asConstraint("Shift can only be assigned to one employee");
+    }
+
+    private boolean checkShifts(Employee e1, Employee e2) {
+        return e1.getShifts().equals(e2.getShifts()) && !e1.equals(e2) ;
+    }
+
+
 }

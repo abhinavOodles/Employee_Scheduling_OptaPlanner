@@ -40,6 +40,24 @@
     "endTime": "2024-08-08 18:30",
     "location": "Hybrid",
     "requiredSkill":"OT"
+  },
+  {
+    "startTime":"2024-08-08 10:30",
+    "endTime": "2024-08-08 18:30",
+    "location":"Gurgaon" ,
+    "requiredSkill":"OT"
+  },
+  {
+    "startTime":"2024-07-13 09:30" ,
+    "endTime": "2024-07-13 18:30",
+    "location": "Hybrid",
+    "requiredSkill":"Gadari"
+  },
+  {
+    "startTime":"2024-07-13 09:30" ,
+    "endTime": "2024-07-13 18:30",
+    "location": "Hybrid",
+    "requiredSkill":"Technical Communication"
   }
 
 ]

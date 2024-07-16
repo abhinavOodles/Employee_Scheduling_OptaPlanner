@@ -28,6 +28,8 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.stream.Collectors;
 
 
@@ -46,7 +48,10 @@ public class SolverService {
     @Autowired
     private SkillRepository skillRepository ;
 
-   private SolutionManager<EmployeeScheduling, HardSoftScore> solutionManager ;
+    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+
+
+    private SolutionManager<EmployeeScheduling, HardSoftScore> solutionManager ;
     private SolverManager<EmployeeScheduling,String>  solverManager ;
 
 
@@ -129,7 +134,7 @@ public class SolverService {
             for (ConstraintMatch<HardSoftScore> constraintMatch : indictment.getConstraintMatchSet()) {
                 String constraintName = constraintMatch.getConstraintName();
                 HardSoftScore score = constraintMatch.getScore();
-                log.info("CourseId::::::::::{},Constraint name ::::::{},:::::::socre{}", process.getId(), constraintName, score);
+                log.info("ShiftID::::::::::{},Constraint name ::::::{},:::::::Score{}", process.getId(), constraintName, score);
             }
         }
         return solution.getShifts() ;
