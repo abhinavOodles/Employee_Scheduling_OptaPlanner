@@ -1,17 +1,14 @@
 package com.example.Employee_Scheduling.SolutionProvider;
 
-import com.example.Employee_Scheduling.Domain.Availability;
-import com.example.Employee_Scheduling.Domain.AvailabilityType;
-import com.example.Employee_Scheduling.Domain.Employee;
-import com.example.Employee_Scheduling.Domain.Shift;
+import com.example.Employee_Scheduling.Domain.*;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.stream.*;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-
-import static java.util.Locale.filter;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public class constraintProvider implements ConstraintProvider {
@@ -20,19 +17,30 @@ public class constraintProvider implements ConstraintProvider {
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
                 requiredSkill(constraintFactory),
-                unavailableEmployee(constraintFactory),
-                assignEveryShift(constraintFactory),
-                undesiredEmployeeTimeSlot(constraintFactory),
-                breakShouldNotBeOverlapWithShift(constraintFactory),
-                unavailableEmployeeTimeSlot(constraintFactory),
-                absentEmployeeTimeSlot(constraintFactory),
-                breakNotPlanned(constraintFactory),
-                oneShiftPerDay(constraintFactory),
-               // assignEveryEmployeeToShift(constraintFactory),
-                uniqueShiftAssignmentConstraint(constraintFactory),
-                noShiftAllocationPenalty(constraintFactory)
+               // assignShift(constraintFactory)
+//                unavailableEmployee(constraintFactory),
+          //    assignOneShiftToOneEmployee(constraintFactory),
+//                undesiredEmployeeTimeSlot(constraintFactory),
+//                breakShouldNotBeOverlapWithShift(constraintFactory),
+//                unavailableEmployeeTimeSlot(constraintFactory),
+//                absentEmployeeTimeSlot(constraintFactory),
+//                breakNotPlanned(constraintFactory),
+//                oneShiftPerDay(constraintFactory),
+//                checkEveryEmployeeHaveShift(constraintFactory),
+               uniqueShiftAssignmentConstraint(constraintFactory),
+               noShiftAllocationPenalty(constraintFactory)
+//                employeeNotDoubleBooked(constraintFactory)
 
         };
+    }
+
+
+
+    private Constraint requiredSkill(ConstraintFactory constraintFactory) {
+        return constraintFactory.forEach(Shift.class)
+                .filter(shift -> !shift.getEmployee().getSkills().stream().map(Skill::getSkillName).collect(Collectors.toSet()).contains(shift.getRequiredSkill()))
+                .penalize(HardSoftScore.ONE_HARD)
+                .asConstraint("Missing required skill");
     }
 
     private Constraint absentEmployeeTimeSlot(ConstraintFactory constraintFactory) {
@@ -80,14 +88,8 @@ public class constraintProvider implements ConstraintProvider {
             return firstStartingTime.isBefore(secondEndingTime) && firstEndingTime.isAfter(secondStartingTime);
         }
 
-    //before assigning any shift check it for required skill
-    private Constraint requiredSkill(ConstraintFactory constraintFactory) {
-        return constraintFactory
-                .forEach(Shift.class)
-                .filter(shift -> shift.getEmployee().getSkills().contains(shift.getRequiredSkill()))
-                .penalize(HardSoftScore.ONE_HARD)
-                .asConstraint("Missing required skill");
-    }
+
+
 
    //check it for  availability of employee for the shifts
     private Constraint unavailableEmployee(ConstraintFactory constraintFactory) {
@@ -113,13 +115,22 @@ public class constraintProvider implements ConstraintProvider {
     }
 
    // assigning every shift  to  according to their skills
-    private Constraint assignEveryShift(ConstraintFactory constraintFactory) {
-        return constraintFactory
-                .forEach(Shift.class)
-                .filter(shift -> ((shift.getEmployee() == null) && !(shift.getRequiredSkill().equals(shift.getEmployee().getSkills()))))
-                .penalize(HardSoftScore.ONE_HARD)
-                .asConstraint("Assign every shift");
-    }
+   private Constraint assignOneShiftToOneEmployee(ConstraintFactory constraintFactory) {
+       return constraintFactory
+               .forEach(Shift.class) // Iterate over each shift
+               .filter(shift -> shift.getEmployee() == null) // Filter shifts that are not yet assigned
+               .penalize(HardSoftScore.ONE_HARD, (shift) -> {
+                   // The penalty is applied if the shift's assigned employee does not meet the required skill
+                   Employee employee = shift.getEmployee();
+                   if (employee != null && !employee.getSkills().contains(shift.getRequiredSkill())) {
+                       return 1; // Penalty of 1 for each violation
+                   }
+                   return 0;
+               })
+               .asConstraint("Assign every shift to an employee with required skills");
+   }
+
+
 
     private Constraint undesiredEmployeeTimeSlot(ConstraintFactory constraintFactory) {
         return constraintFactory
@@ -207,15 +218,35 @@ public class constraintProvider implements ConstraintProvider {
 
     private Constraint uniqueShiftAssignmentConstraint(ConstraintFactory constraintFactory) {
         // Penalize when multiple employees are assigned to the same shift
-        return constraintFactory
-                .forEachUniquePair(Employee.class)
-                .filter(((employee, employee2) -> checkShifts(employee , employee2)))
-                .penalize( HardSoftScore.ONE_SOFT).asConstraint("Shift can only be assigned to one employee");
+        return constraintFactory.forEach(Shift.class)
+                .join(Shift.class,
+                        Joiners.equal(Shift::getEmployee),
+                        Joiners.lessThan(Shift::getId))
+                .filter((shift1, shift2) -> shift1.getEmployee() != null && shift1.getEmployee().equals(shift2.getEmployee()))
+                .penalize( HardSoftScore.ONE_SOFT)
+                .asConstraint("Unique shift assignment");
     }
 
-    private boolean checkShifts(Employee e1, Employee e2) {
-        return e1.getShifts().equals(e2.getShifts()) && !e1.equals(e2) ;
-    }
+
+
+
+
+//    private boolean checkShifts(Shift s1, Shift s2) {
+//       Employee employee1 = s1.getEmployee() ;
+//       Employee employee2 = s2.getEmployee() ;
+//
+////       Set<Shift> shifts = new HashSet<>(employee.getShifts()) ;
+////       Set<Shift> shifts1 = new HashSet<>(employee1.getShifts()) ;
+////
+////       shifts.retainAll(shifts1) ;
+////
+////
+////         return !shifts.isEmpty();
+//
+//        return (employee1 != null) && (employee2 != null) && employee1.equals(employee2);
+//    }
+
+
 
     private Constraint noShiftAllocationPenalty(ConstraintFactory constraintFactory) {
         //if any shift is left without assigning to any employee then this constraint is applied
@@ -226,5 +257,23 @@ public class constraintProvider implements ConstraintProvider {
                 .filter((employee, shiftCount) -> shiftCount == 0) // Filter employees with no shifts
                 .penalize( HardSoftScore.ONE_SOFT)
                 .asConstraint("No shift allocation penalty");
+    }
+
+  private Constraint checkEveryEmployeeHaveShift(ConstraintFactory constraintFactory){
+        return constraintFactory
+                .forEach(Employee.class)
+                .filter(employee -> employee.getShifts() == null )
+                .penalize(HardSoftScore.ONE_HARD)
+                .asConstraint("Employee without shift") ;
+    }
+
+    private Constraint employeeNotDoubleBooked(ConstraintFactory constraintFactory) {
+        return constraintFactory
+                .forEachUniquePair(Shift.class)
+                .filter((shift1, shift2) ->
+                        shift1.getEmployee().equals(shift2.getEmployee())
+                                && !shift1.equals(shift2)) // Ensure the same employee is not assigned to two different shifts
+                .penalize(HardSoftScore.ONE_HARD)
+                .asConstraint("Ensure no employee is double-booked");
     }
 }

@@ -1,14 +1,15 @@
 package com.example.Employee_Scheduling.Controller;
 
+import com.example.Employee_Scheduling.DTOS.EmployeeSchedulingDTO;
 import com.example.Employee_Scheduling.Service.SolverService;
+import org.apache.tomcat.util.http.fileupload.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+
 
 
 @RestController
@@ -17,17 +18,27 @@ public class SolverController {
 
     private static final long PROBLEM_ID = 0L;
 
-     @Autowired
+    @Autowired
      SolverService solverService ;
 
     @PostMapping("/start")
-    private ResponseEntity<?> solving () throws IOException {
-        return ResponseEntity.ok(solverService.solver());
+    private ResponseEntity<?> solving (@RequestBody EmployeeSchedulingDTO employeeSchedulingDTO) {
+        return ResponseEntity.ok(solverService.solver(employeeSchedulingDTO));
     }
 
 
-    @GetMapping
-    private  void getEmployee(){
-         solverService.getEmployee();
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(MultipartFile file) {
+        try {
+
+            String fileName = file.getOriginalFilename();
+
+
+            return ResponseEntity.ok("File uploaded successfully: " + fileName);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File upload failed");
+        }
     }
 }

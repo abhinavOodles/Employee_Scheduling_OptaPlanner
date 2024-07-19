@@ -18,6 +18,7 @@ public class EmployeeScheduling {
     private String name;
 
     @ProblemFactCollectionProperty
+    @ValueRangeProvider(id = "availabilityRange")
     private List<Availability> availabilities;
 
     @ProblemFactCollectionProperty
@@ -34,5 +35,15 @@ public class EmployeeScheduling {
     private HardSoftScore score;
 
     private SolverStatus solverStatus;
+
+    public EmployeeScheduling(){
+    }
+
+    public EmployeeScheduling(List<Availability> availabilities, List<Employee> employees, List<Shift> shifts) {
+        this.availabilities = availabilities;
+        this.employees = employees;
+        this.shifts = shifts;
+    }
+
 
 }

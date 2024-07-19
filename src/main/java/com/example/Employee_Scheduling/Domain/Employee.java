@@ -3,9 +3,7 @@ package com.example.Employee_Scheduling.Domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 import org.optaplanner.core.api.domain.variable.InverseRelationShadowVariable;
 
@@ -17,25 +15,19 @@ import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Entity
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class Employee  {
 
-    @Id
-    @PlanningId
-    @GeneratedValue
-    @JsonIgnore
-    private Long id;
 
+
+    @PlanningId
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Skill> skills ;
+   private Set<Skill> skills;
 
     @InverseRelationShadowVariable(sourceVariableName = "employee")
-    @OneToMany(cascade = CascadeType.ALL)
     private Set<Shift> shifts ;
 
     public Employee(String name) {
@@ -44,10 +36,10 @@ public class Employee  {
 
 
 
+
 //    @JsonIgnore
 //    @Transient
 //    private List<OptAvailability> optAvailabilities;
 
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Availability> availability;
 }

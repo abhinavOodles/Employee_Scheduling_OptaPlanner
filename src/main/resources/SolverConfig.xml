@@ -25,6 +25,7 @@
             <acceptedCountLimit>20</acceptedCountLimit>
         </forager>
     </localSearch>
+
     <termination>
         <unimprovedSecondsSpentLimit>60</unimprovedSecondsSpentLimit>
     </termination>

@@ -1,7 +1,6 @@
 package com.example.Employee_Scheduling.Domain;
 
 
-import com.example.Employee_Scheduling.DateTimeDeserializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,15 +16,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Availability {
+
 
     @PlanningId
     @Id
     @GeneratedValue
-    @JsonIgnore
-    private Long id  ;
+    Long id;
+
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime startTime ;
@@ -36,7 +35,6 @@ public class Availability {
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType;
 
-    @ManyToOne(cascade =CascadeType.ALL)
     private Employee employee ;
 
 

@@ -8,8 +8,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SkillDTO {
 
-    private String skillName ;
 
-    private Employee employee ;
+    private String skillName ;
 
 }

@@ -16,16 +16,13 @@ import java.time.LocalDateTime;
 @PlanningEntity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Shift {
 
     @Id
     @PlanningId
     @GeneratedValue
-    @JsonIgnore
     private Long id;
 
 
@@ -36,17 +33,18 @@ public class Shift {
 
 
     @PlanningVariable
-    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employee ;
 
 
-    public Shift(LocalDateTime endTime, String location, String requiredSkill, LocalDateTime startTime) {
+
+    public Shift(Long id ,LocalDateTime endTime, String location, String requiredSkill, LocalDateTime startTime) {
         this.endTime = endTime;
         this.location = location;
         this.requiredSkill = requiredSkill;
         this.startTime = startTime;
+
     }
 
-
-
+    public Shift() {
+    }
 }

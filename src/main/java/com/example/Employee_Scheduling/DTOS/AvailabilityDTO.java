@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AvailabilityDTO {
 
-
+   private long id ;
 
    @JsonDeserialize(using = DateTimeDeserializer.class)
    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -31,8 +31,7 @@ public class AvailabilityDTO {
     @Enumerated(EnumType.STRING)
     private AvailabilityType availabilityType ;
 
-    @JsonIgnore
-    private Employee employee ;
+    private EmployeeDTO employee ;
 
 
 }

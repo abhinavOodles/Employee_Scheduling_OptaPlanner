@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ShiftDTO {
 
+
+    private Long id  ;
+
     @JsonDeserialize(using = DateTimeDeserializer.class)
     private LocalDateTime startTime;
 
