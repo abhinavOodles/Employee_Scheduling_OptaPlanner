@@ -39,7 +39,6 @@ public class Employee  {
 
 //    @JsonIgnore
 //    @Transient
-//    private List<OptAvailability> optAvailabilities;
-
+   private AvailabilityType availabilityType ;
     private List<Availability> availability;
 }

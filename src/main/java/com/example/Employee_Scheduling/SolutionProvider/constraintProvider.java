@@ -1,12 +1,15 @@
 package com.example.Employee_Scheduling.SolutionProvider;
 
 import com.example.Employee_Scheduling.Domain.*;
+import jdk.dynalink.linker.LinkerServices;
+import org.optaplanner.core.api.score.buildin.hardmediumsoftlong.HardMediumSoftLongScore;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.stream.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,26 +19,31 @@ public class constraintProvider implements ConstraintProvider {
     @Override
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
+
+                shiftShouldHaveEmployee(constraintFactory),
                 requiredSkill(constraintFactory),
-               // assignShift(constraintFactory)
-//                unavailableEmployee(constraintFactory),
-          //    assignOneShiftToOneEmployee(constraintFactory),
-//                undesiredEmployeeTimeSlot(constraintFactory),
-//                breakShouldNotBeOverlapWithShift(constraintFactory),
-//                unavailableEmployeeTimeSlot(constraintFactory),
-//                absentEmployeeTimeSlot(constraintFactory),
-//                breakNotPlanned(constraintFactory),
-//                oneShiftPerDay(constraintFactory),
-//                checkEveryEmployeeHaveShift(constraintFactory),
-               uniqueShiftAssignmentConstraint(constraintFactory),
-               noShiftAllocationPenalty(constraintFactory)
-//                employeeNotDoubleBooked(constraintFactory)
+                unavailableEmployee(constraintFactory),
+             assignOneShiftToOneEmployee(constraintFactory),
+               undesiredEmployeeTimeSlot(constraintFactory),
+               breakShouldNotBeOverlapWithShift(constraintFactory),
+                unavailableEmployeeTimeSlot(constraintFactory),
+              absentEmployeeTimeSlot(constraintFactory),
+                breakNotPlanned(constraintFactory),
+               oneShiftPerDay(constraintFactory),
+            checkEveryEmployeeHaveShift(constraintFactory),
+                uniqueShiftAssignmentConstraint(constraintFactory),
+               noShiftAllocationPenalty(constraintFactory),
+              employeeNotDoubleBooked(constraintFactory)
 
         };
     }
 
-
-
+    private Constraint shiftShouldHaveEmployee(ConstraintFactory constraintFactory) {
+        return constraintFactory.forEachIncludingNullVars(Shift.class)
+                .filter(shift -> shift.getEmployee()==null)
+                .penalize(HardSoftScore.ofHard(1)).
+                asConstraint("Deployments should have employee");
+    }
     private Constraint requiredSkill(ConstraintFactory constraintFactory) {
         return constraintFactory.forEach(Shift.class)
                 .filter(shift -> !shift.getEmployee().getSkills().stream().map(Skill::getSkillName).collect(Collectors.toSet()).contains(shift.getRequiredSkill()))
@@ -51,41 +59,95 @@ public class constraintProvider implements ConstraintProvider {
                     .asConstraint("Employee Is Absent For Given TimeSlot") ;
         }
 
-    private boolean checkAvailabilityAtATimeSlot(Shift shift) {
-        if (shift.getEmployee().getAvailability().equals(AvailabilityType.ABSENT)){
-            return true ;
-        }
-        return false ;
-    }
+   private boolean checkAvailabilityAtATimeSlot(Shift shift) {
+
+       List<Availability> availabilities = shift.getEmployee().getAvailability();
+
+       if (availabilities == null) {
+           return true;
+       }
+
+       Availability availability = null;
+
+
+       for (Availability availability1 : availabilities) {
+           if (shift.getEmployee() == availability1.getEmployee()) {
+               availability = availability1;
+               break;
+           } else {
+               continue;
+           }
+       }
+
+       if (availability.getAvailabilityType().equals(AvailabilityType.UNAVAILABLE)) {
+           return true;
+       } else {
+           return false;
+       }
+   }
+
+//        private boolean checkAvailabilityAtATimeSlot(Shift shift) {
+//            List<Availability> availabilities = shift.getEmployee().getAvailability();
+//
+//            if (availabilities == null) {
+//                return true;
+//            }
+//
+//            Availability availability = null;
+//
+//            for (Availability availability1 : availabilities) {
+//                if (shift.getEmployee().equals(availability1.getEmployee())) {
+//                    availability = availability1;
+//                    break;
+//                }
+//            }
+//
+//            if (availability == null) {
+//                return true;
+//            }
+//
+//            return availability.getAvailabilityType().equals(AvailabilityType.UNAVAILABLE);
+//        }
+
+
 
 
     private Constraint unavailableEmployeeTimeSlot(ConstraintFactory constraintFactory) {
         return constraintFactory
                 .forEach(Shift.class)
-                .filter(shift -> checkTimings(shift))
+                .filter(shift -> {
+                    Employee employee = shift.getEmployee();
+                    return employee != null && employee.getAvailability() != null &&
+                            employee.getAvailability().stream()
+                                    .anyMatch(availability -> availability.getAvailabilityType() == AvailabilityType.UNAVAILABLE);
+                })
                 .penalize(HardSoftScore.ONE_SOFT)
-                .asConstraint("Employee Is Unavailable") ;
+                .asConstraint("Employee Is Unavailable");
     }
 
-    private boolean checkTimings (Shift shift){
-        if(shift.getEmployee().getAvailability().equals(AvailabilityType.UNAVAILABLE)){
-            return true ;
-        }
-        else {
-            return false ;
-        }
 
-    }
+
+//    private boolean checkTimings (Shift shift){
+//        if(shift.getEmployee().getAvailability().equals(AvailabilityType.UNAVAILABLE)){
+//            return true ;
+//        }
+//        else {
+//            return false ;
+//        }
+//
+//
+//    }
 
     private boolean checkOverLappingShift (Shift shift1 , Shift shift2) {
+
         LocalDateTime firstStartingTime = shift1.getStartTime();
         LocalDateTime firstEndingTime = shift1.getEndTime();
         LocalDateTime secondStartingTime = shift2.getStartTime();
         LocalDateTime secondEndingTime = shift2.getEndTime();
 
-
             // Check if shift1 starts before shift2 ends and shift1 ends after shift2 starts
-            return firstStartingTime.isBefore(secondEndingTime) && firstEndingTime.isAfter(secondStartingTime);
+        return firstStartingTime.isBefore(secondEndingTime) && firstEndingTime.isAfter(secondStartingTime);
+
         }
 
 
@@ -141,11 +203,11 @@ public class constraintProvider implements ConstraintProvider {
     }
 
     private boolean checkAvailabilityType(Shift shift, AvailabilityType availabilityType) {
-        if (shift.getEmployee().getAvailability().equals(availabilityType)){
-            return true ;
+        if (shift.getEmployee().getAvailability() != null && shift.getEmployee().getAvailability().equals(availabilityType)){
+            return false ;
         }
         else{
-            return false ;
+            return true ;
         }
     }
 

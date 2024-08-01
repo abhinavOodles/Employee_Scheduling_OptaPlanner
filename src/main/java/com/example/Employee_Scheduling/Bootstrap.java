@@ -75,7 +75,7 @@
 ////            } else {
 ////                log.info("Skill data already exists.");
 ////
-////            }
+//           }
 //        } catch (Exception e) {
 //            log.error("Error during bootstrap data initialization.", e);
 //        }

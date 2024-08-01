@@ -1,6 +1,7 @@
 package com.example.Employee_Scheduling.DTOS;
 
 
+import com.example.Employee_Scheduling.Domain.AvailabilityType;
 import com.example.Employee_Scheduling.Domain.Skill;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -15,6 +16,7 @@ public class EmployeeDTO {
 
     private String name;
     private Set<Skill> skills ;
+    private AvailabilityType availabilityType ;
 
 
 }

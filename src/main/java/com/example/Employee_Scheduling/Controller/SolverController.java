@@ -2,7 +2,6 @@ package com.example.Employee_Scheduling.Controller;
 
 import com.example.Employee_Scheduling.DTOS.EmployeeSchedulingDTO;
 import com.example.Employee_Scheduling.Service.SolverService;
-import org.apache.tomcat.util.http.fileupload.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +25,10 @@ public class SolverController {
         return ResponseEntity.ok(solverService.solver(employeeSchedulingDTO));
     }
 
-
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(MultipartFile file) {
         try {
-
             String fileName = file.getOriginalFilename();
-
-
             return ResponseEntity.ok("File uploaded successfully: " + fileName);
         }
         catch (Exception e) {

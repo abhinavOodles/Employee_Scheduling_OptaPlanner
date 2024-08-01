@@ -92,6 +92,7 @@ public class SolverService {
         //employee3.setId(employee2.getId());
         employee3.setName(employee2.getName());
         employee3.setSkills(employee2.getSkills());
+        employee3.setAvailabilityType(employee2.getAvailabilityType());
 
         employee.add(employee3) ;
         }
@@ -149,9 +150,9 @@ public class SolverService {
         employeeScheduling.setAvailabilities(availability);
         employeeScheduling.setShifts(shift);
         employeeScheduling.setSkills(skill);
+
+
         String jobId = UUID.randomUUID().toString();
-
-
         SolverJob<EmployeeScheduling, String> solverJob = solverManager.solve(jobId, employeeScheduling);
 
 
@@ -201,7 +202,8 @@ public class SolverService {
                 log.info("ShiftID::::::::::{},Constraint name ::::::{},:::::::Score{}", process.getId(), constraintName, score);
             }
         }
-        return solution.getShifts();
+
+    return solution.getShifts() ;
     }
 }
 
