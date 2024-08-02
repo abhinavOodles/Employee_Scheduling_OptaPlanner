@@ -132,6 +132,7 @@ public class SolverService {
             shift1.setRequiredSkill(shiftDTO.getRequiredSkill());
 
             shift.add(shift1) ;
+
         }
 
         List<SkillDTO> skillDTOList = employeeSchedulingDTO.getSkillDTOList() ;
