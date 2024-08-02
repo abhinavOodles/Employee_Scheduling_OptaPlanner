@@ -1,16 +1,13 @@
 package com.example.Employee_Scheduling.SolutionProvider;
 
 import com.example.Employee_Scheduling.Domain.*;
-import jdk.dynalink.linker.LinkerServices;
-import org.optaplanner.core.api.score.buildin.hardmediumsoftlong.HardMediumSoftLongScore;
+
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.stream.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 
